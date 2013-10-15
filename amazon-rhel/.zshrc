@@ -35,17 +35,20 @@ setopt COMPLETE_IN_WORD
 # autoload -U colors
 #colors
 
+# For oracle
+db_connect() { 
+    export ORACLE_VERSION=10.2.0.2
+    export ORACLE_HOME=/opt/app/oracle/product/${ORACLE_VERSION}/client
+    export PATH=$ORACLE_HOME/bin:$PATH
+#    export LD_LIBRARY_PATH=$ORACLE_HOME/lib:$LD_LIBRARY_PATH
+    rlwrap sqlplus $* 
+}
+
 # Aliases
 alias bb="brazil-build"
-alias sqlplus="rlwrap sqlplus"
+alias sqlplus=db_connect
+alias eclipsed="eclipse > /dev/null 2>&1 &"
 
 # More exports
 export EDITOR=vim
 export P4EDITOR=vim
-
-# For oracle
-export ORACLE_VERSION=10.2.0.2
-export ORACLE_HOME=/opt/app/oracle/product/${ORACLE_VERSION}/client
-export PATH=$ORACLE_HOME/bin:$PATH
-export LD_LIBRARY_PATH=$ORACLE_HOME/lib:$LD_LIBRARY_PATH
-
