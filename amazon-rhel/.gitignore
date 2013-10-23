@@ -1,9 +1,10 @@
 # Exclude build symlink
 /build
 
-# Exclude Java stuff
+# Exclude Java/Eclipse stuff
 .project
 .classpath
+.settings
 *.class
 /bin/
 /eclipse-bin/*
