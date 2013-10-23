@@ -1,0 +1,16 @@
+# Exclude build symlink
+/build
+
+# Exclude Java stuff
+.project
+.classpath
+*.class
+/bin/
+/eclipse-bin/*
+
+# Exclude backups
+*~
+*#
+
+# Exclude Apollo overrides
+apollo-overrides
