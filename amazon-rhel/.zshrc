@@ -40,7 +40,6 @@ db_connect() {
     export ORACLE_VERSION=10.2.0.2
     export ORACLE_HOME=/opt/app/oracle/product/${ORACLE_VERSION}/client
     export PATH=$ORACLE_HOME/bin:$PATH
-#    export LD_LIBRARY_PATH=$ORACLE_HOME/lib:$LD_LIBRARY_PATH
     rlwrap sqlplus $* 
 }
 
@@ -52,3 +51,18 @@ alias eclipsed="eclipse > /dev/null 2>&1 &"
 # More exports
 export EDITOR=vim
 export P4EDITOR=vim
+
+# Use the Solarized Color Scheme
+# Set console colors to Solarized Colors by overriding the defaults (note that these are the dark Solarized colors)
+gconftool-2 --set "/apps/gnome-terminal/profiles/Default/use_theme_colors" --type bool false
+gconftool-2 --set "/apps/gnome-terminal/profiles/Default/palette" --type string "#073642:#DC322F:#859900:#B58900:#268BD2:#D33682:#2AA198:#EEE8D5:#002B36:#CB4B16:#586E75:#657B83:#839496:#6C71C4:#93A1A1:#FDF6E3"
+gconftool-2 --set "/apps/gnome-terminal/profiles/Default/background_color" --type string "#002B36"
+gconftool-2 --set "/apps/gnome-terminal/profiles/Default/foreground_color" --type string "#657B83"
+ 
+# Change dircolors to work better with the Solarized colorscheme
+eval `dircolors ~/.dir_colors/dircolors.ansi-universal`
+ 
+# Fix Prompt (Gnome Terminal assumes that bold == bright, which is not the case with Solarized)
+# PS1="%{$fg[blue]%}%n%{$fg[cyan]%}@%{$fg[blue]%}%m%{$fg[yellow]%}> %{$fg[default]%}"
+# RPROMPT="%{$fg[magenta]%}%(7~,.../,)%6~%{$fg[default]%}"
+
