@@ -1,0 +1,26 @@
+1) Selectively activate an environment on a handful of hosts
+/apollo/env/SDETools/bin/apolloEnvironmentControl --environmentFullName <environment, including stage> --host <host1> --host <host2>
+
+
+2) Deactivate a local environment
+/apollo/env/runCommand -e <environment> -a <activate/deactivate>
+
+
+3) How to check-in changes?
+- p4 change <clist #>
+
+- p4 submit -c <clist #>
+	- <description> <url to codereview> [cr: <reviewer>]
+
+- brazilIntegrate --from mainline --to release --package <package name>
+	- automatically trigger pipeline changes (see pipelines.amazon.com)
+
+- go to build.amazon.com and build to live version set (IMPORTANT)
+
+
+4) ssh2hc <HOSTCLASSNAME> - quickly ssh into one of the hosts in a hostclass
+
+5) In BROWSE-TEST databases, we have two accounts: davidcgl_admin and davidcgl_ro
+    - password needs to be wrapped in " " 
+
+6) If copy/paste doesn't work, try VBoxClient --clipboard
