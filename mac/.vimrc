@@ -7,6 +7,7 @@ syntax on
 filetype plugin indent on
 
 " Themes
+set t_Co=256
 set background=dark
 colorscheme solarized
 
