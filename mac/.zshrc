@@ -45,7 +45,8 @@ plugins=(git osx history history-substring-search brew)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # Aliases
 alias ssh2lin='ssh -p 622 davidcgl@davidcgl.com'
+alias gradle='/opt/gradle-1.8/bin/gradle'
