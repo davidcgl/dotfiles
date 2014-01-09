@@ -1,9 +1,5 @@
-# custom prompt
 export PS1='[\[\033[00;31m\]\u\[\033[00;37m\]] \$ '
-
-# for Homebrew
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/share/python:$PATH
+export PATH=/usr/local/bin:$PATH 
 
 # change ls color
 export CLICOLOR=1
