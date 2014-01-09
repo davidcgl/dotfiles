@@ -41,12 +41,13 @@ db_connect() {
     export ORACLE_HOME=/opt/app/oracle/product/${ORACLE_VERSION}/client
     export PATH=$ORACLE_HOME/bin:$PATH
     rlwrap sqlplus $* 
-}
+} 
 
 # Aliases
 alias bb="brazil-build"
 alias sqlplus=db_connect
 alias eclipsed="eclipse > /dev/null 2>&1 &"
+alias sshsql="ssh browse-command-line-na-5001.iad5"
 
 # More exports
 export EDITOR=vim
