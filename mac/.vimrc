@@ -9,7 +9,7 @@ filetype plugin indent on
 " Themes
 set t_Co=256
 set background=dark
-colorscheme solarized
+colorscheme desert
 
 " Tabbing/Indenting
 set expandtab           " enter spaces when tab is pressed
