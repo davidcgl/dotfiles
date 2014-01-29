@@ -22,3 +22,5 @@
 
 5) In BROWSE-TEST databases, we have two accounts: davidcgl_admin and davidcgl_ro
     - password needs to be wrapped in " " 
+
+6) If copy/paste doesn't work, try VBoxClient --clipboard

@@ -50,6 +50,7 @@ alias eclipsed="eclipse > /dev/null 2>&1 &"
 alias p4cs="p4 changes -u davidcgl -m 10" 
 alias sqlplus=db_connect
 alias sshsql="ssh browse-command-line-na-5001.iad5"
+alias reboothost="/opt/systems/bin/reboothost"
 
 # More exports
 export EDITOR=vim
