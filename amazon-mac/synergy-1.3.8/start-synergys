@@ -1,9 +1,0 @@
-#!/bin/bash
-
-SYNERGY_HOME=${HOME}/synergy-1.3.8
-SYNERGY_LOG=$SYNERGY_HOME/synergys.log
-SYNERGY_SERVER=$SYNERGY_HOME/synergys
-killall synergys
-sleep 3
-echo Starting synergys...
-$SYNERGY_SERVER -f -d INFO -a 127.0.0.1:24800 > $SYNERGY_LOG 2>&1
