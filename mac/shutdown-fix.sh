@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/zsh
 
 sudo defaults write /System/Library/LaunchDaemons/com.apple.coreservices.appleevents ExitTimeOut -int 1
 
