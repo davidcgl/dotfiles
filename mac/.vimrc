@@ -8,7 +8,7 @@ filetype plugin indent on
 
 " Themes
 set background=dark
-colorscheme solarized 
+colorscheme solarized
 
 " Tabbing/Indenting
 set expandtab           " enter spaces when tab is pressed
