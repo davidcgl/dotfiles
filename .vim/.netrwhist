@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/davidcgl/Dropbox/workplace/dotfiles/.git'
-let g:netrw_dirhist_2='/Users/davidcgl/Dropbox/workplace/sorting-algorithms'
-let g:netrw_dirhist_3='/Users/davidcgl/Dropbox/workplace/py-algorithms/sorting'
-let g:netrw_dirhist_4='/Users/davidcgl/Dropbox/workplace/py-algorithms/tests/graph'
