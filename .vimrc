@@ -28,13 +28,3 @@ set showmatch           " show matching bracket
 " -----------------------------------------------------------------------------
 au FileType python setlocal textwidth=79
 
-" -----------------------------------------------------------------------------
-" Syntastic
-" -----------------------------------------------------------------------------
-let g:syntastic_mode_map = { 'mode': 'active',
-    \ 'active_filetypes': ['py'],
-    \ 'passive_filetypes': ['html'] }
-
-" Use flake8 as python syntax checker
-" Remember to 'pip install flake8' 
-let g:syntastic_python_checkers = ['flake8']
