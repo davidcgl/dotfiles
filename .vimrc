@@ -67,7 +67,8 @@ set autoindent          " copy indent from current line when starting new line
 set colorcolumn=80      " display vertical line margin
 set ruler               " display row and column of cursor (bottom right)
 set number              " line number
-set smartcase           " ignore case when searching
+set ignorecase          " case insensitive search and substitute
+set smartcase           " case insensitive when searching all lowercase 
 set showmatch           " show matching bracket
 set laststatus=2        " always show status line
 
