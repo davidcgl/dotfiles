@@ -12,6 +12,8 @@ Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-commentary'
+Plugin 'Valloric/YouCompleteMe'
 
 " ------------------------------------
 " vim-airline
@@ -68,7 +70,7 @@ set colorcolumn=80      " display vertical line margin
 set ruler               " display row and column of cursor (bottom right)
 set number              " line number
 set ignorecase          " case insensitive search and substitute
-set smartcase           " case insensitive when searching all lowercase 
+set smartcase           " case insensitive when searching all lowercase
 set showmatch           " show matching bracket
 set laststatus=2        " always show status line
 
