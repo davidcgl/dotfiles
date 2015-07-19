@@ -8,12 +8,16 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'FelikZ/ctrlp-py-matcher'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
-Plugin 'FelikZ/ctrlp-py-matcher'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'mattn/emmet-vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-commentary'
-Plugin 'Valloric/YouCompleteMe'
 
 " ------------------------------------
 " vim-airline
@@ -47,6 +51,26 @@ endif
 
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
+
+" ---------------------------------
+" Syntastic
+" ---------------------------------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['eslint']
+
+" ---------------------------------
+" NERDTree
+" ---------------------------------
+map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeWinSize=40
 
 call vundle#end()
 filetype plugin indent on
