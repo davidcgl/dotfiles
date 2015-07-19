@@ -14,10 +14,14 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
+Plugin 'millermedeiros/vim-esformatter'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-commentary'
+
+call vundle#end()
+filetype plugin indent on
 
 " ------------------------------------
 " vim-airline
@@ -44,13 +48,28 @@ let g:airline#extensions#tabline#left_alt_sep = ''
 " ---------------------------------
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l -g ""
-        \ --nocolor
-        \ --hidden
-        \ --ignore .git'
+    \ --nocolor
+    \ --hidden
+    \ --ignore .git
+    \ --ignore .idea
+    \ --ignore .meteor'
 endif
 
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
+
+" ---------------------------------
+" NERDTree
+" ---------------------------------
+noremap <C-n> :NERDTreeToggle<CR>
+
+let g:NERDTreeWinSize=40
+
+" ---------------------------------
+" ESFormatter
+" ---------------------------------
+autocmd FileType javascript nnoremap <silent> <leader>es :Esformatter<CR>
+autocmd FileType javascript vnoremap <silent> <leader>es :EsformatterVisual<CR>
 
 " ---------------------------------
 " Syntastic
@@ -61,19 +80,12 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
 let g:syntastic_javascript_checkers = ['eslint']
-
-" ---------------------------------
-" NERDTree
-" ---------------------------------
-map <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeWinSize=40
-
-call vundle#end()
-filetype plugin indent on
+let g:syntastic_mode_map = {
+    \ 'mode': 'active',
+    \ 'active_filetypes': [],
+    \ 'passive_filetypes': ['html', 'css'] }
 
 " =============================================================================
 " General
@@ -113,3 +125,5 @@ vnoremap <leader>k :m '<-2<CR>gv=gv
 " Save/load sessions
 map <F2> :mksession! ~/.vim_session <CR>
 map <F3> :source ~/.vim_session <CR>
+
+vnoremap <leader>s yq/p<CR>
