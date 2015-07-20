@@ -107,8 +107,10 @@ noremap <leader>sc :SyntasticCheck<CR>
 syntax on
 set background=dark
 colorscheme solarized
+hi IncSearch cterm=standout ctermfg=10 ctermbg=7
 
 " Editing
+set hlsearch            " highlight last searched item
 set expandtab           " enter spaces when tab is pressed
 set tabstop=2           " use 2 spaces to represent tab
 set softtabstop=2       " setting to equal tabstop to use all spaces only
@@ -122,20 +124,15 @@ set smartcase           " case insensitive when searching all lowercase
 set showmatch           " show matching bracket
 set laststatus=2        " always show status line
 
-" Buffers
-nnoremap <leader>t :enew<CR>
-nnoremap <leader><Tab> :bnext<CR>
-nnoremap <leader>` :bprevious<CR>
-nnoremap <leader>w :bd<CR>
+nnoremap <leader>t :enew<CR>             " new buffer
+nnoremap <leader><Tab> :bnext<CR>        " next buffer
+nnoremap <leader>` :bprevious<CR>        " previous buffer
+nnoremap <leader>w :bd<CR>               " close current buffer
+nnoremap <leader>j :m .+1<CR>==          " move current line up
+nnoremap <leader>k :m-2<CR>==            " move current line down
+vnoremap <leader>j :m '>+1<CR>gv=gv      " move visual block up
+vnoremap <leader>k :m '<-2<CR>gv=gv      " move visual block down
+vnoremap <leader>s yq/p<CR>              " search visual block
+map <F2> :mksession! ~/.vim_session <CR> " save session
+map <F3> :source ~/.vim_session <CR>     " load session
 
-" Moving lines
-nnoremap <leader>j :m .+1<CR>==
-nnoremap <leader>k :m-2<CR>==
-vnoremap <leader>j :m '>+1<CR>gv=gv
-vnoremap <leader>k :m '<-2<CR>gv=gv
-
-" Save/load sessions
-map <F2> :mksession! ~/.vim_session <CR>
-map <F3> :source ~/.vim_session <CR>
-
-vnoremap <leader>s yq/p<CR>
