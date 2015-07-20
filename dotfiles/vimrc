@@ -116,7 +116,7 @@ set tabstop=2           " use 2 spaces to represent tab
 set softtabstop=2       " setting to equal tabstop to use all spaces only
 set shiftwidth=2        " number of spaces to use for auto indent
 set autoindent          " copy indent from current line when starting new line
-set colorcolumn=80      " display vertical line margin
+set colorcolumn=81      " display vertical line margin
 set ruler               " display row and column of cursor (bottom right)
 set number              " line number
 set ignorecase          " case insensitive search and substitute
