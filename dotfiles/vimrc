@@ -2,16 +2,22 @@
 " ==============================================================================
 " Plugins
 " ==============================================================================
+
 set nocompatible
 filetype off
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
 
 function! AtGoogle()
   return filereadable(glob("$HOME/.at_google"))
 endfunction
+
+" Load Glug plugins and Google-specific settings
+if AtGoogle()
+  source $HOME/.google.vim
+endif
+
+" Load Vundle plugins
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " Load Google/Home-specific Vundle plugins
 if AtGoogle()
@@ -95,11 +101,6 @@ Plugin 'tpope/vim-surround'
 
 call vundle#end()
 
-" Load Glug plugins and Google-specific settings
-if AtGoogle()
-  source $HOME/.google.vim
-endif
-
 
 " =============================================================================
 " General
@@ -117,6 +118,7 @@ set expandtab           " enter spaces when tab is pressed
 set hlsearch            " highlight last searched item
 set ignorecase          " case insensitive search and substitute
 set laststatus=2        " always show status line
+set nohidden            " needed for BufExplorer split to work?
 set number              " line number
 set pastetoggle=<F10>   " toggle paste mode
 set ruler               " display row and column of cursor (bottom right)
