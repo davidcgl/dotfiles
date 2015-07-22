@@ -1,13 +1,24 @@
-" =============================================================================
-" Vundle
-" =============================================================================
+
+" ==============================================================================
+" Plugins
+" ==============================================================================
 set nocompatible
 filetype off
 
-" Setup runtime path to include Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+
+function! AtGoogle()
+  return filereadable(glob("$HOME/.at_google"))
+endfunction
+
+" Load Google/Home-specific Vundle plugins
+if AtGoogle()
+  source $HOME/.vundle_google.vim
+else
+  source $HOME/.vundle_home.vim
+endif
 
 " ---------------------------------
 " auto-pairs
@@ -29,34 +40,6 @@ let g:bufExplorerSplitOutPathName = 0   " don't split path and file name
 let g:bufExplorerVertSize = 20          " new split windows size set by Vim.
 nnoremap <C-b> :ToggleBufExplorer<CR>
 
-
-" ---------------------------------
-" CtrlP
-" ---------------------------------
-Plugin 'kien/ctrlp.vim'
-Plugin 'FelikZ/ctrlp-py-matcher'
-
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l -g ""
-    \ --nocolor
-    \ --hidden
-    \ --ignore .git
-    \ --ignore .idea
-    \ --ignore .meteor
-    \ --ignore .\*swp'
-endif
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
-
-
-" ---------------------------------
-" ESFormatter
-" ---------------------------------
-Plugin 'millermedeiros/vim-esformatter'
-
-autocmd FileType javascript nnoremap <silent> <leader>es :Esformatter<CR>
-
-
 " ---------------------------------
 " NERDTree
 " ---------------------------------
@@ -64,37 +47,6 @@ Plugin 'scrooloose/nerdtree'
 
 let g:NERDTreeWinSize = 40
 noremap <C-n> :NERDTreeToggle<CR>
-
-
-" ---------------------------------
-" Syntastic
-" ---------------------------------
-Plugin 'scrooloose/syntastic'
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_mode_map = {
-    \ 'mode': 'passive',
-    \ 'active_filetypes': [],
-    \ 'passive_filetypes': ['html', 'css'] }
-
-noremap <leader>sc :SyntasticCheck<CR>
-
-
-" ---------------------------------
-" TernJS
-" ---------------------------------
-Plugin 'marijnh/tern_for_vim'
-
-let g:tern_show_argument_hints = 'on_move'
-autocmd FileType javascript nnoremap <leader>tdf :TernDef<CR>
-autocmd FileType javascript nnoremap <leader>tdc :TernDoc<CR>
-autocmd FileType javascript nnoremap <leader>tdb :TernDocBrowse<CR>
 
 
 " ------------------------------------
@@ -132,15 +84,6 @@ nnoremap <leader>os :execute "OpenSession" getcwd()<CR>
 
 
 " ---------------------------------
-" YouCompleteMe
-" ---------------------------------
-Plugin 'Valloric/YouCompleteMe'
-
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-
-
-" ---------------------------------
 " Other plugins
 " ---------------------------------
 Plugin 'altercation/vim-colors-solarized'
@@ -150,35 +93,38 @@ Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 
-
 call vundle#end()
+
+" Load Glug plugins and Google-specific settings
+if AtGoogle()
+  source $HOME/.google.vim
+endif
+
 
 " =============================================================================
 " General
 " =============================================================================
-
-" Colors
 syntax on
+filetype plugin indent on
+
 set background=dark
 colorscheme solarized
 hi IncSearch cterm=standout ctermfg=10 ctermbg=7
 
-" Editing
-set hlsearch            " highlight last searched item
-set expandtab           " enter spaces when tab is pressed
-set tabstop=2           " use 2 spaces to represent tab
-set softtabstop=2       " setting to equal tabstop to use all spaces only
-set shiftwidth=2        " number of spaces to use for auto indent
 set autoindent          " copy indent from current line when starting new line
 set colorcolumn=81      " display vertical line margin
-set ruler               " display row and column of cursor (bottom right)
-set number              " line number
+set expandtab           " enter spaces when tab is pressed
+set hlsearch            " highlight last searched item
 set ignorecase          " case insensitive search and substitute
-set smartcase           " case insensitive when searching all lowercase
-set showmatch           " show matching bracket
 set laststatus=2        " always show status line
-
-set omnifunc=csscomplete#CompleteCSS " autocomplete CSS with <C-x><C-o>
+set number              " line number
+set pastetoggle=<F10>   " toggle paste mode
+set ruler               " display row and column of cursor (bottom right)
+set shiftwidth=2        " number of spaces to use for auto indent
+set showmatch           " show matching bracket
+set smartcase           " case insensitive when searching all lowercase
+set softtabstop=2       " setting to equal tabstop to use all spaces only
+set tabstop=2           " use 2 spaces to represent tab
 
 nnoremap <leader>t :enew<CR>             " new buffer
 nnoremap <leader><tab> :bnext<CR>        " next buffer
@@ -189,5 +135,3 @@ nnoremap <leader>k :m-2<CR>==            " move current line down
 vnoremap <leader>j :m '>+1<CR>gv=gv      " move visual block up
 vnoremap <leader>k :m '<-2<CR>gv=gv      " move visual block down
 vnoremap <leader>s yq/p<CR>              " search visual block
-
-filetype plugin indent on
