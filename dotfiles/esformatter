@@ -1,7 +1,8 @@
 {
   "preset": "default",
   "plugins": [
-    "esformatter-quotes"
+    "esformatter-quotes",
+    "esformatter-semicolons"
   ],
   "quotes": {
     "type": "double",
