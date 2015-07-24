@@ -43,7 +43,6 @@ let g:bufExplorerShowRelativePath = 1   " show relative paths.
 let g:bufExplorerSortBy = 'fullpath'    " sort by full path name
 let g:bufExplorerSplitBelow = 1         " split new window below current
 let g:bufExplorerSplitOutPathName = 1   " split the path and file name
-let g:bufExplorerSplitRight = 1         " split right for vsplit
 let g:bufExplorerVertSize = 20          " new split windows size set by Vim
 nnoremap <C-b> :ToggleBufExplorer<CR>
 
@@ -125,6 +124,7 @@ set ruler               " display row and column of cursor (bottom right)
 set shiftwidth=2        " number of spaces to use for auto indent
 set showmatch           " show matching bracket
 set smartcase           " case insensitive when searching all lowercase
+set splitright          " split window to the right of current one 
 set softtabstop=2       " setting to equal tabstop to use all spaces only
 set tabstop=2           " use 2 spaces to represent tab
 
