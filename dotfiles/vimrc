@@ -24,15 +24,6 @@ else
   source $HOME/.vundle_home.vim
 endif
 
-" ---------------------------------
-" auto-pairs
-" ---------------------------------
-Plugin 'jiangmiao/auto-pairs'
-
-let g:AutoPairs = {'(':')', '[':']', '{':'}'}
-let g:AutoPairsFlyMode = 0    " disable jump between open/close braces
-let g:AutoPairsMapSpace = 0   " don't insert space between open/close braces
-
 
 " ---------------------------------
 " bufexplorer
@@ -44,6 +35,14 @@ let g:bufExplorerSortBy = 'fullpath'    " sort by full path name
 let g:bufExplorerSplitOutPathName = 1   " split the path and file name
 let g:bufExplorerVertSize = 20          " new split windows size set by Vim
 nnoremap <C-b> :ToggleBufExplorer<CR>
+
+
+" ---------------------------------
+" delimitMate
+" ---------------------------------
+Plugin 'Raimondi/delimitMate'
+let g:delimitMate_expand_cr = 1
+
 
 " ---------------------------------
 " NERDTree
