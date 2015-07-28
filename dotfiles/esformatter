@@ -5,7 +5,7 @@
     "esformatter-semicolons"
   ],
   "quotes": {
-    "type": "double",
+    "type": "single",
     "avoidEscape": false
   },
   "indent": {
