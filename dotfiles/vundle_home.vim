@@ -9,12 +9,16 @@ if executable('ag')
         \ --nocolor
         \ --hidden
         \ --ignore .git
+        \ --ignore .gitkeep
         \ --ignore .idea
         \ --ignore .meteor
-        \ --ignore .\*swp'
+        \ --ignore .\*swp
+        \ --ignore .iron'
 endif
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
+let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_open_multiple_files = '2vjr'
 
 
 " ---------------------------------
