@@ -42,6 +42,7 @@ nnoremap <C-b> :ToggleBufExplorer<CR>
 " ---------------------------------
 Plugin 'Raimondi/delimitMate'
 let g:delimitMate_expand_cr = 1
+let delimitMate_quotes = ""  " don't match any quotes
 
 
 " ---------------------------------

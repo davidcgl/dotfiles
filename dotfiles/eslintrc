@@ -235,8 +235,8 @@
     "padded-blocks": 0,              // enforce padding within blocks (off by default)
     "quote-props": 0,                // require quotes around object literal property names (off by default)
     "quotes": [
-      1,
-      "double"
+      0,
+      "single"
     ],                               // specify whether backticks, double or single quotes should be used
     "semi-spacing": [
       2,
