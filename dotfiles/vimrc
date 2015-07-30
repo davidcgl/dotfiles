@@ -82,7 +82,8 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 
 let g:session_autoload = 'no'
-let g:session_autosave = 'no'
+let g:session_autosave = 'yes'
+let g:session_verbose_messages = 0
 nnoremap <leader>ss :execute "SaveSession" getcwd()<CR>
 nnoremap <leader>os :execute "OpenSession" getcwd()<CR>
 
