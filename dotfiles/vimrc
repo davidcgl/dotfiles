@@ -38,14 +38,6 @@ nnoremap <C-b> :ToggleBufExplorer<CR>
 
 
 " ---------------------------------
-" delimitMate
-" ---------------------------------
-Plugin 'Raimondi/delimitMate'
-let g:delimitMate_expand_cr = 1
-let delimitMate_quotes = ""  " don't match any quotes
-
-
-" ---------------------------------
 " NERDTree
 " ---------------------------------
 Plugin 'scrooloose/nerdtree'
@@ -129,14 +121,22 @@ set splitright          " make vsplit to the right
 set softtabstop=2       " setting to equal tabstop to use all spaces only
 set tabstop=2           " use 2 spaces to represent tab
 
+" Switch buffers
 nnoremap <leader>t :enew<CR>
 nnoremap <leader><tab> :bnext<CR>
 nnoremap <leader>` :bprevious<CR>
 nnoremap <leader>w :bd<CR>
+
+" Move lines
 nnoremap <leader>j :m .+1<CR>==
 nnoremap <leader>k :m-2<CR>==
 vnoremap <leader>j :m '>+1<CR>gv=gv
 vnoremap <leader>k :m '<-2<CR>gv=gv
 vnoremap <leader>s yq/p<CR>
+
+" Move cursor to beginning or EOL
 inoremap <C-e> <Esc>A
 inoremap <C-a> <Esc>I
+
+" Strip trailing whitespace on save
+au BufWritePre * :%s/\s\+$//e
