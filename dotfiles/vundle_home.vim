@@ -55,9 +55,16 @@ noremap <leader>sc :SyntasticCheck<CR>
 Plugin 'marijnh/tern_for_vim'
 
 let g:tern_show_argument_hints = 'on_move'
-autocmd FileType javascript nnoremap <leader>tdf :TernDef<CR>
-autocmd FileType javascript nnoremap <leader>tdc :TernDoc<CR>
-autocmd FileType javascript nnoremap <leader>tdb :TernDocBrowse<CR>
+
+
+" ---------------------------------
+" UltiSnips
+" ---------------------------------
+Plugin 'SirVer/ultisnips'
+Plugin 'cmather/vim-meteor-snippets'
+Plugin 'honza/vim-snippets'
+
+let g:UltiSnipsExpandTrigger = '<leader>e'
 
 
 " ---------------------------------

@@ -37,15 +37,6 @@ let g:bufExplorerVertSize = 20          " new split windows size set by Vim
 nnoremap <C-b> :ToggleBufExplorer<CR>
 
 
-" ---------------------------------
-" NERDTree
-" ---------------------------------
-Plugin 'scrooloose/nerdtree'
-
-let g:NERDTreeWinSize = 40
-noremap <C-n> :NERDTreeToggle<CR>
-
-
 " ------------------------------------
 " vim-airline
 " ------------------------------------
@@ -139,4 +130,4 @@ inoremap <C-e> <Esc>A
 inoremap <C-a> <Esc>I
 
 " Strip trailing whitespace on save
-au BufWritePre * :%s/\s\+$//e
+au FileType c,cpp,css,html,java,javascript au BufWritePre <buffer> :%s/\s\+$//e
