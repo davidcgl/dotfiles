@@ -71,6 +71,7 @@ nnoremap <leader>ss :execute "SaveSession" getcwd()<CR>
 nnoremap <leader>os :execute "OpenSession" getcwd()<CR>
 
 
+
 " ---------------------------------
 " Other plugins
 " ---------------------------------
@@ -78,6 +79,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'groenewege/vim-less'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'mattn/emmet-vim'
+Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 
