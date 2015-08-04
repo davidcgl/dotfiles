@@ -71,7 +71,6 @@ nnoremap <leader>ss :execute "SaveSession" getcwd()<CR>
 nnoremap <leader>os :execute "OpenSession" getcwd()<CR>
 
 
-
 " ---------------------------------
 " Other plugins
 " ---------------------------------
@@ -87,20 +86,22 @@ call vundle#end()
 
 
 " =============================================================================
-" General
+" Options
 " =============================================================================
 syntax on
 filetype plugin indent on
 
 set background=dark
 colorscheme solarized
-hi IncSearch cterm=standout ctermfg=10 ctermbg=7
+hi IncSearch cterm=reverse ctermfg=7 ctermbg=0
+hi Search cterm=reverse ctermfg=7 ctermbg=0
 
 set autoindent          " copy indent from current line when starting new line
 set colorcolumn=81      " display vertical line margin
 set expandtab           " enter spaces when tab is pressed
 set hlsearch            " highlight last searched item
 set ignorecase          " case insensitive search and substitute
+set incsearch           " search as you type
 set laststatus=2        " always show status line
 set nohidden            " needed for BufExplorer split to work?
 set number              " line number
@@ -131,5 +132,11 @@ vnoremap <leader>s yq/p<CR>
 inoremap <C-e> <Esc>A
 inoremap <C-a> <Esc>I
 
+" Clear highlighting
+nnoremap <C-l> :noh<CR>
+
 " Strip trailing whitespace on save
-au FileType c,cpp,css,html,java,javascript au BufWritePre <buffer> :%s/\s\+$//e
+au FileType cpp,css,go,html,java,javascript au BufWritePre <buffer> :%s/\s\+$//e
+
+" Use // as commentstring
+au FileType cpp,java,javascript setlocal commentstring=//\ %s
