@@ -30,6 +30,7 @@ endif
 " ---------------------------------
 Plugin 'jlanzarotta/bufexplorer'
 
+let g:bufExplorerFindActive = 0         " do not go to active window
 let g:bufExplorerShowRelativePath = 1   " show relative paths
 let g:bufExplorerSortBy = 'name'        " sort by filename
 let g:bufExplorerSplitOutPathName = 1   " split the path and file name
@@ -103,7 +104,6 @@ set hlsearch            " highlight last searched item
 set ignorecase          " case insensitive search and substitute
 set incsearch           " search as you type
 set laststatus=2        " always show status line
-set nohidden            " needed for BufExplorer split to work?
 set number              " line number
 set pastetoggle=<F10>   " toggle paste mode
 set ruler               " display row and column of cursor (bottom right)
