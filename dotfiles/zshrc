@@ -5,6 +5,23 @@ alias urldecode="python -c \"import sys, urllib as ul; \
 alias urlencode="python -c \"import sys, urllib as ul; \
   print ul.quote_plus(sys.argv[1])\""
 
+# Protect myself against myself
+alias realrm="$(which rm)"
+
+rm() {
+  if [[ $1 =~ '.*r.*' ]]; then
+    for dir in ${@:2}; do
+      local confirm=''
+      vared -p "Delete $dir and subdirs [y/n]: " confirm
+      if [[ $confirm == 'y' || $confirm == 'Y' ]]; then
+        realrm $1 $dir
+      fi
+    done
+  else
+    realrm "$@"
+  fi
+}
+
 if [[ -e $HOME/.at_google ]]; then
   source $HOME/.zshrc_google
 else
