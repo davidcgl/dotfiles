@@ -50,8 +50,13 @@
     "meteor": true
   },
 
+  "ecmaFeatures": {
+    "jsx": true
+  },
+
   "plugins": [
     //  (must run `npm install eslint-plugin-*` as well )
+    "react"
   ],
 
   "rules": {

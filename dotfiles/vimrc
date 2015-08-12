@@ -77,9 +77,10 @@ nnoremap <leader>os :execute "OpenSession" getcwd()<CR>
 " ---------------------------------
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'groenewege/vim-less'
-Plugin 'jelera/vim-javascript-syntax'
 Plugin 'mattn/emmet-vim'
+Plugin 'mxw/vim-jsx'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 
