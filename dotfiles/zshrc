@@ -5,16 +5,21 @@ alias urldecode="python -c \"import sys, urllib as ul; \
 alias urlencode="python -c \"import sys, urllib as ul; \
   print ul.quote_plus(sys.argv[1])\""
 
-# Protect myself against myself
+# Protect myself against myself.
 alias realrm="$(which rm)"
 
 rm() {
   if [[ $1 =~ '^-.*r.*' ]]; then
-    for dir in ${@:2}; do
-      local confirm=''
-      vared -p "Delete $dir and subdirs [y/n]: " confirm
-      if [[ $confirm == 'y' || $confirm == 'Y' ]]; then
-        realrm $1 $dir
+    for file in ${@:2}; do
+      # Only confirm if we are removing a directory.
+      if [[ -d $file ]]; then
+        local confirm=''
+        vared -p "Delete $file and subdirs [yn]: " confirm
+        if [[ $confirm == 'y' || $confirm == 'Y' ]]; then
+          realrm $1 $file
+        fi
+      else
+        realrm $1 $file
       fi
     done
   else
