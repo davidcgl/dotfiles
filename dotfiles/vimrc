@@ -41,7 +41,9 @@ nnoremap <C-b> :ToggleBufExplorer<CR>
 " delimitMate
 " ------------------------------------
 Plugin 'Raimondi/delimitMate'
+
 let g:delimitMate_expand_cr = 1
+let g:delimitMate_autoclose = 0 " do not add closing delimiter
 
 " ------------------------------------
 " vim-airline
