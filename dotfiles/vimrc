@@ -102,8 +102,8 @@ filetype plugin indent on
 
 set background=dark
 colorscheme solarized
-hi IncSearch cterm=reverse ctermfg=7 ctermbg=0
-hi Search cterm=reverse ctermfg=7 ctermbg=0
+hi IncSearch cterm=bold ctermfg=7 ctermbg=5
+hi Search cterm=bold ctermfg=0 ctermbg=7
 
 set autoindent          " copy indent from current line when starting new line
 set colorcolumn=81      " display vertical line margin
