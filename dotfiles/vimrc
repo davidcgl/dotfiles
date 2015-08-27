@@ -24,19 +24,6 @@ else
   source $HOME/.vundle_home.vim
 endif
 
-
-" ---------------------------------
-" bufexplorer
-" ---------------------------------
-Plugin 'jlanzarotta/bufexplorer'
-
-let g:bufExplorerFindActive = 0         " do not go to active window
-let g:bufExplorerShowRelativePath = 1   " show relative paths
-let g:bufExplorerSortBy = 'name'        " sort by filename
-let g:bufExplorerSplitOutPathName = 1   " split the path and file name
-let g:bufExplorerVertSize = 20          " new split windows size set by Vim
-nnoremap <C-b> :ToggleBufExplorer<CR>
-
 " ------------------------------------
 " delimitMate
 " ------------------------------------
@@ -44,6 +31,15 @@ Plugin 'Raimondi/delimitMate'
 
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_autoclose = 0 " do not add closing delimiter
+
+" ------------------------------------
+" fzf.vim
+" ------------------------------------
+Plugin 'junegunn/fzf.vim'
+set rtp+=/usr/local/Cellar/fzf/HEAD
+nnoremap <C-p> :Files<CR>
+nnoremap <C-b> :Buffers<CR>
+nnoremap <C-f> :BLines<CR>
 
 " ------------------------------------
 " vim-airline
@@ -65,7 +61,6 @@ let g:airline_symbols.linenr = ':'
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 
-
 " ---------------------------------
 " vim-session / vim-misc
 " ---------------------------------
@@ -77,7 +72,6 @@ let g:session_autosave = 'yes'
 let g:session_verbose_messages = 0
 nnoremap <leader>ss :execute "SaveSession" getcwd()<CR>
 nnoremap <leader>os :execute "OpenSession" getcwd()<CR>
-
 
 " ---------------------------------
 " Other plugins
@@ -93,7 +87,6 @@ Plugin 'tpope/vim-surround'
 
 call vundle#end()
 
-
 " =============================================================================
 " Options
 " =============================================================================
@@ -108,6 +101,7 @@ hi Search cterm=bold ctermfg=0 ctermbg=7
 set autoindent          " copy indent from current line when starting new line
 set colorcolumn=81      " display vertical line margin
 set expandtab           " enter spaces when tab is pressed
+set hidden              " don't unload buffer
 set history=1000        " keep last 1000 commands
 set hlsearch            " highlight last searched item
 set ignorecase          " case insensitive search and substitute

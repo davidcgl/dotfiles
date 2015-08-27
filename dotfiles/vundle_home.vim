@@ -1,33 +1,9 @@
 " ---------------------------------
-" CtrlP
-" ---------------------------------
-Plugin 'kien/ctrlp.vim'
-Plugin 'FelikZ/ctrlp-py-matcher'
-
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l -g ""
-        \ --nocolor
-        \ --hidden
-        \ --ignore .git
-        \ --ignore .gitkeep
-        \ --ignore .idea
-        \ --ignore .meteor
-        \ --ignore .\*swp
-        \ --ignore .iron'
-endif
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
-let g:ctrlp_open_new_file = 'r'
-let g:ctrlp_open_multiple_files = '2vjr'
-
-
-" ---------------------------------
 " ESFormatter
 " ---------------------------------
 Plugin 'millermedeiros/vim-esformatter'
 
 autocmd FileType javascript nnoremap <silent> <leader>es :Esformatter<CR>
-
 
 " ---------------------------------
 " Syntastic
@@ -48,14 +24,12 @@ let g:syntastic_mode_map = {
 
 noremap <leader>sc :SyntasticCheck<CR>
 
-
 " ---------------------------------
 " TernJS
 " ---------------------------------
 Plugin 'marijnh/tern_for_vim'
 
 let g:tern_show_argument_hints = 'on_move'
-
 
 " ---------------------------------
 " UltiSnips
@@ -65,7 +39,6 @@ Plugin 'cmather/vim-meteor-snippets'
 Plugin 'honza/vim-snippets'
 
 let g:UltiSnipsExpandTrigger = '<leader>e'
-
 
 " ---------------------------------
 " YouCompleteMe
