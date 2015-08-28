@@ -8,7 +8,7 @@ function! AtGoogle()
   return filereadable(glob("$HOME/.at_google"))
 endfunction
 
-" Load Glug plugins and Google-specific settings
+" Load Glug plugins
 if AtGoogle()
   source $HOME/.google.vim
 endif
@@ -17,35 +17,67 @@ endif
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" Load Google/Home-specific Vundle plugins
-if AtGoogle()
-  source $HOME/.vundle_google.vim
-else
-  source $HOME/.vundle_home.vim
-endif
-
 " ------------------------------------
 " delimitMate
 " ------------------------------------
 Plugin 'Raimondi/delimitMate'
-
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_autoclose = 0 " do not add closing delimiter
+
+" ---------------------------------
+" ESFormatter
+" ---------------------------------
+Plugin 'millermedeiros/vim-esformatter'
+autocmd FileType javascript nnoremap <silent> <leader>es :Esformatter<CR>
 
 " ------------------------------------
 " fzf.vim
 " ------------------------------------
 Plugin 'junegunn/fzf.vim'
-set rtp+=/usr/local/Cellar/fzf/HEAD
+if AtGoogle()
+  set rtp+=~/.fzf/
+else
+  set rtp+=/usr/local/Cellar/fzf/HEAD
+endif
 nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
 nnoremap <C-f> :BLines<CR>
+
+" ---------------------------------
+" Syntastic
+" ---------------------------------
+Plugin 'scrooloose/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_mode_map = {
+    \ 'mode': 'passive',
+    \ 'active_filetypes': [],
+    \ 'passive_filetypes': ['html', 'css'] }
+noremap <leader>sc :SyntasticCheck<CR>
+
+" ---------------------------------
+" TernJS
+" ---------------------------------
+Plugin 'marijnh/tern_for_vim'
+let g:tern_show_argument_hints = 'on_move'
+
+" ---------------------------------
+" UltiSnips
+" ---------------------------------
+Plugin 'SirVer/ultisnips'
+Plugin 'cmather/vim-meteor-snippets'
+Plugin 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger = '<leader>e'
 
 " ------------------------------------
 " vim-airline
 " ------------------------------------
 Plugin 'bling/vim-airline'
-
 let g:airline_theme = 'badwolf'
 let g:airline#extensions#tabline#enabled = 1
 if !exists('g:airline_symbols')
@@ -66,12 +98,21 @@ let g:airline#extensions#tabline#left_alt_sep = ''
 " ---------------------------------
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
-
 let g:session_autoload = 'no'
 let g:session_autosave = 'yes'
 let g:session_verbose_messages = 0
 nnoremap <leader>ss :execute "SaveSession" getcwd()<CR>
 nnoremap <leader>os :execute "OpenSession" getcwd()<CR>
+
+
+" ---------------------------------
+" YouCompleteMe
+" ---------------------------------
+if !AtGoogle()
+  Plugin 'Valloric/YouCompleteMe'
+  let g:ycm_autoclose_preview_window_after_completion = 1
+  let g:ycm_autoclose_preview_window_after_insertion = 1
+endif " !AtGoogle()
 
 " ---------------------------------
 " Other plugins
