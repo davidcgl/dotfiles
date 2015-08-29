@@ -27,7 +27,9 @@ let g:bufExplorerShowRelativePath = 1   " show relative paths
 let g:bufExplorerSortBy = 'name'        " sort by filename
 let g:bufExplorerSplitOutPathName = 1   " split the path and file name
 let g:bufExplorerVertSize = 20          " new split windows size set by Vim
-nnoremap <C-b> :ToggleBufExplorer<CR>
+nnoremap <C-b><C-b> :ToggleBufExplorer<CR>
+nnoremap <C-b><C-v> :BufExplorerVerticalSplit<CR>
+nnoremap <C-b><C-x> :BufExplorerHorizontalSplit<CR>
 
 " ------------------------------------
 " delimitMate
@@ -51,9 +53,9 @@ if AtGoogle()
 else
   set rtp+=/usr/local/Cellar/fzf/HEAD
 endif
-nnoremap <C-p> :Files<CR>
-nnoremap <C-f> :BLines<CR>
-nnoremap <C-l> :Lines<CR>
+nnoremap <C-p><C-p> :Files<CR>
+nnoremap <C-p><C-b> :Buffers<CR>
+nnoremap <C-p><C-f> :Lines<CR>
 
 " ---------------------------------
 " Syntastic
@@ -189,7 +191,7 @@ inoremap <C-e> <Esc>A
 inoremap <C-a> <Esc>I
 
 " Clear highlighting
-nnoremap <C-h> :noh<CR>
+nnoremap <C-l> :noh<CR>
 
 " Strip trailing whitespace on save
 au FileType cpp,css,go,html,java,javascript au BufWritePre <buffer> :%s/\s\+$//e
