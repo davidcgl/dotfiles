@@ -3,3 +3,7 @@
 .idea
 .meteor
 .iron
+
+# Google related
+blaze-*/
+.git5_*/
