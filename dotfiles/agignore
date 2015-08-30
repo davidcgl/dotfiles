@@ -4,6 +4,10 @@
 .meteor
 .iron
 
+# Vim swp files
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+
 # Google related
 blaze-*/
 .git5_*/
