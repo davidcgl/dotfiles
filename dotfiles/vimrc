@@ -21,7 +21,6 @@ call vundle#begin()
 " bufexplorer
 " ---------------------------------
 Plugin 'jlanzarotta/bufexplorer'
-
 let g:bufExplorerFindActive = 0         " do not go to active window
 let g:bufExplorerShowRelativePath = 1   " show relative paths
 let g:bufExplorerSortBy = 'name'        " sort by filename
@@ -126,7 +125,7 @@ if !AtGoogle()
   Plugin 'Valloric/YouCompleteMe'
   let g:ycm_autoclose_preview_window_after_completion = 1
   let g:ycm_autoclose_preview_window_after_insertion = 1
-endif " !AtGoogle()
+endif
 
 " ---------------------------------
 " Other plugins
