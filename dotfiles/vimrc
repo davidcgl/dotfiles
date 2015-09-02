@@ -154,6 +154,7 @@ call vundle#end()
 " =============================================================================
 syntax on
 filetype plugin indent on
+runtime! macros/matchit.vim
 
 set background=dark
 colorscheme solarized
@@ -173,6 +174,7 @@ set number              " line number
 set pastetoggle=<F10>   " toggle paste mode
 set ruler               " display row and column of cursor (bottom right)
 set shiftwidth=2        " number of spaces to use for auto indent
+set showcmd             " show partial command in last line of screen
 set showmatch           " show matching bracket
 set smartcase           " case insensitive when searching all lowercase
 set splitbelow          " make split to below
