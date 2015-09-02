@@ -57,6 +57,14 @@ nnoremap <C-p><C-b> :Buffers<CR>
 nnoremap <C-p><C-f> :Lines<CR>
 
 " ---------------------------------
+" Gundo
+" ---------------------------------
+Plugin 'sjl/gundo.vim'
+nnoremap <leader>u :GundoToggle<CR>
+let g:gundo_preview_bottom = 1
+let g:gundo_preview_height = 40
+
+" ---------------------------------
 " Syntastic
 " ---------------------------------
 Plugin 'scrooloose/syntastic'
@@ -172,7 +180,6 @@ set splitright          " make vsplit to the right
 set softtabstop=2       " setting to equal tabstop to use all spaces only
 set tabstop=2           " use 2 spaces to represent tab
 set wildmenu            " show autocomplete options
-
 
 " Switch buffers
 nnoremap <leader>t :enew<CR>
