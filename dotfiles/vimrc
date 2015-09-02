@@ -54,7 +54,7 @@ Plugin 'junegunn/fzf.vim'
 if AtGoogle()
   set rtp+=~/.fzf/
   if AtGoogleWorkspace()
-    let $FZF_DEFAULT_COMMAND = 'fzf-g5-list'  
+    let $FZF_DEFAULT_COMMAND = 'fzf-g5-list'
   endif
 else
   set rtp+=/usr/local/Cellar/fzf/HEAD
