@@ -30,9 +30,9 @@ let g:bufExplorerShowRelativePath = 1   " show relative paths
 let g:bufExplorerSortBy = 'name'        " sort by filename
 let g:bufExplorerSplitOutPathName = 1   " split the path and file name
 let g:bufExplorerVertSize = 20          " new split windows size set by Vim
-nnoremap <C-t><C-t> :ToggleBufExplorer<CR>
-nnoremap <C-t><C-v> :BufExplorerVerticalSplit<CR>
-nnoremap <C-t><C-s> :BufExplorerHorizontalSplit<CR>
+nnoremap <C-i><C-i> :ToggleBufExplorer<CR>
+nnoremap <C-i><C-v> :BufExplorerVerticalSplit<CR>
+nnoremap <C-i><C-s> :BufExplorerHorizontalSplit<CR>
 
 " ------------------------------------
 " delimitMate
