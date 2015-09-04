@@ -30,9 +30,9 @@ let g:bufExplorerShowRelativePath = 1   " show relative paths
 let g:bufExplorerSortBy = 'name'        " sort by filename
 let g:bufExplorerSplitOutPathName = 1   " split the path and file name
 let g:bufExplorerVertSize = 20          " new split windows size set by Vim
-nnoremap <C-b><C-b> :ToggleBufExplorer<CR>
-nnoremap <C-b><C-v> :BufExplorerVerticalSplit<CR>
-nnoremap <C-b><C-x> :BufExplorerHorizontalSplit<CR>
+nnoremap <C-t><C-t> :ToggleBufExplorer<CR>
+nnoremap <C-t><C-v> :BufExplorerVerticalSplit<CR>
+nnoremap <C-t><C-s> :BufExplorerHorizontalSplit<CR>
 
 " ------------------------------------
 " delimitMate
@@ -60,8 +60,11 @@ else
   set rtp+=/usr/local/Cellar/fzf/HEAD
 endif
 nnoremap <C-p><C-p> :Files<CR>
+nnoremap <C-p><C-v> :vsplit<CR>:Files<CR>
+nnoremap <C-p><C-s> :split<CR>:Files<CR>
 nnoremap <C-p><C-b> :Buffers<CR>
-nnoremap <C-p><C-f> :Lines<CR>
+nnoremap <C-p><C-f> :BLines<CR>
+nnoremap <C-p><C-l> :Lines<CR>
 
 " ---------------------------------
 " Gundo
