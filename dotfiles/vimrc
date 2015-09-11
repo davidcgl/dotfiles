@@ -30,16 +30,16 @@ let g:bufExplorerShowRelativePath = 1   " show relative paths
 let g:bufExplorerSortBy = 'name'        " sort by filename
 let g:bufExplorerSplitOutPathName = 1   " split the path and file name
 let g:bufExplorerVertSize = 20          " new split windows size set by Vim
-nnoremap <C-i><C-i> :ToggleBufExplorer<CR>
-nnoremap <C-i><C-v> :BufExplorerVerticalSplit<CR>
-nnoremap <C-i><C-s> :BufExplorerHorizontalSplit<CR>
+nnoremap <C-p><C-p> :ToggleBufExplorer<CR>
+nnoremap <C-p><C-v> :BufExplorerVerticalSplit<CR>
+nnoremap <C-p><C-s> :BufExplorerHorizontalSplit<CR>
 
 " ------------------------------------
 " delimitMate
 " ------------------------------------
 Plugin 'Raimondi/delimitMate'
 let g:delimitMate_expand_cr = 1
-let g:delimitMate_autoclose = 0 " do not add closing delimiter
+let g:delimitMate_expand_space = 1
 
 " ---------------------------------
 " ESFormatter
@@ -59,12 +59,12 @@ if AtGoogle()
 else
   set rtp+=/usr/local/Cellar/fzf/HEAD
 endif
-nnoremap <C-p><C-p> :Files<CR>
-nnoremap <C-p><C-v> :vsplit<CR>:Files<CR>
-nnoremap <C-p><C-s> :split<CR>:Files<CR>
-nnoremap <C-p><C-b> :Buffers<CR>
-nnoremap <C-p><C-f> :BLines<CR>
-nnoremap <C-p><C-l> :Lines<CR>
+nnoremap <C-n><C-n> :Files<CR>
+nnoremap <C-n><C-v> :vsplit<CR>:Files<CR>
+nnoremap <C-n><C-s> :split<CR>:Files<CR>
+nnoremap <C-n><C-b> :Buffers<CR>
+nnoremap <C-n><C-f> :BLines<CR>
+nnoremap <C-n><C-l> :Lines<CR>
 
 " ---------------------------------
 " Gundo
@@ -94,8 +94,12 @@ noremap <leader>sc :SyntasticCheck<CR>
 " ---------------------------------
 " TernJS
 " ---------------------------------
-Plugin 'marijnh/tern_for_vim'
-let g:tern_show_argument_hints = 'on_move'
+" TODO: Tern is especially slow at Google. Remove after finding a fix.
+if !AtGoogle()
+  Plugin 'marijnh/tern_for_vim'
+  let g:tern_show_argument_hints = 'on_move'
+endif
+
 
 " ---------------------------------
 " UltiSnips
@@ -134,7 +138,6 @@ let g:session_autosave = 'yes'
 let g:session_verbose_messages = 0
 nnoremap <leader>ss :execute "SaveSession" getcwd()<CR>
 nnoremap <leader>os :execute "OpenSession" getcwd()<CR>
-
 
 " ---------------------------------
 " YouCompleteMe
@@ -199,11 +202,7 @@ nnoremap <leader><tab> :bnext<CR>
 nnoremap <leader>` :bprevious<CR>
 nnoremap <leader>w :bd<CR>
 
-" Move lines
-nnoremap <leader>j :m .+1<CR>==
-nnoremap <leader>k :m-2<CR>==
-vnoremap <leader>j :m '>+1<CR>gv=gv
-vnoremap <leader>k :m '<-2<CR>gv=gv
+" Search currently selected text
 vnoremap <leader>s yq/p<CR>
 
 " Move cursor to beginning or EOL
