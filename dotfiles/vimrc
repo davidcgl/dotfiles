@@ -97,7 +97,7 @@ noremap <leader>sc :SyntasticCheck<CR>
 " TODO: Tern is especially slow at Google. Remove after finding a fix.
 if !AtGoogle()
   Plugin 'marijnh/tern_for_vim'
-  let g:tern_show_argument_hints = 'on_move'
+  let g:tern_show_argument_hints = 'on_hold'
 endif
 
 
@@ -146,6 +146,7 @@ if !AtGoogle()
   Plugin 'Valloric/YouCompleteMe'
   let g:ycm_autoclose_preview_window_after_completion = 1
   let g:ycm_autoclose_preview_window_after_insertion = 1
+  let g:ycm_allow_changing_updatetime = 0 " set my own updatetime
 endif
 
 " ---------------------------------
@@ -162,9 +163,9 @@ Plugin 'tpope/vim-surround'
 
 call vundle#end()
 
-" =============================================================================
+" ==============================================================================
 " Options
-" =============================================================================
+" ==============================================================================
 syntax on
 filetype plugin indent on
 runtime! macros/matchit.vim
@@ -195,6 +196,7 @@ set splitright          " make vsplit to the right
 set softtabstop=2       " setting to equal tabstop to use all spaces only
 set tabstop=2           " use 2 spaces to represent tab
 set wildmenu            " show autocomplete options
+set updatetime=750      " for triggering tern_for_vim on_hold event
 
 " Switch buffers
 nnoremap <leader>t :enew<CR>
