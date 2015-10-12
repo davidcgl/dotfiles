@@ -94,12 +94,8 @@ noremap <leader>sc :SyntasticCheck<CR>
 " ---------------------------------
 " TernJS
 " ---------------------------------
-" TODO: Tern is especially slow at Google. Remove after finding a fix.
-if !AtGoogle()
-  Plugin 'marijnh/tern_for_vim'
-  let g:tern_show_argument_hints = 'on_hold'
-endif
-
+Plugin 'marijnh/tern_for_vim'
+let g:tern_show_argument_hints = 'on_hold'
 
 " ---------------------------------
 " UltiSnips
@@ -160,6 +156,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/matchit.zip'
 
 call vundle#end()
 
@@ -168,7 +165,6 @@ call vundle#end()
 " ==============================================================================
 syntax on
 filetype plugin indent on
-runtime! macros/matchit.vim
 
 set background=dark
 colorscheme solarized
@@ -176,6 +172,7 @@ hi IncSearch cterm=bold ctermfg=7 ctermbg=5
 hi Search cterm=bold ctermfg=0 ctermbg=7
 
 set autoindent          " copy indent from current line when starting new line
+set autoread            " reload file if its changed outside of vim
 set colorcolumn=81      " display vertical line margin
 set expandtab           " enter spaces when tab is pressed
 set hidden              " don't unload buffer
@@ -186,6 +183,7 @@ set incsearch           " search as you type
 set laststatus=2        " always show status line
 set number              " line number
 set pastetoggle=<F10>   " toggle paste mode
+set relativenumber      " relative number to current line 
 set ruler               " display row and column of cursor (bottom right)
 set shiftwidth=2        " number of spaces to use for auto indent
 set showcmd             " show partial command in last line of screen
