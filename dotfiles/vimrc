@@ -149,6 +149,7 @@ endif
 " Other plugins
 " ---------------------------------
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'google/vim-searchindex'
 Plugin 'groenewege/vim-less'
 Plugin 'mattn/emmet-vim'
 Plugin 'mxw/vim-jsx'
@@ -183,7 +184,7 @@ set incsearch           " search as you type
 set laststatus=2        " always show status line
 set number              " line number
 set pastetoggle=<F10>   " toggle paste mode
-set relativenumber      " relative number to current line 
+set relativenumber      " relative number to current line
 set ruler               " display row and column of cursor (bottom right)
 set shiftwidth=2        " number of spaces to use for auto indent
 set showcmd             " show partial command in last line of screen
