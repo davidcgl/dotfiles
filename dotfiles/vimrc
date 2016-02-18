@@ -57,7 +57,7 @@ if AtGoogle()
     let $FZF_DEFAULT_COMMAND = 'fzf-g5-list'
   endif
 else
-  set rtp+=/usr/local/Cellar/fzf/HEAD
+  set rtp+=/usr/local/Cellar/fzf/0.11.3
 endif
 nnoremap <C-p><C-p> :Files<CR>
 nnoremap <C-p><C-v> :vsplit<CR>:Files<CR>
@@ -114,7 +114,8 @@ let g:UltiSnipsExpandTrigger = '<leader>e'
 " ------------------------------------
 " vim-airline
 " ------------------------------------
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 let g:airline_theme = 'badwolf'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
