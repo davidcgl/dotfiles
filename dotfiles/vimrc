@@ -209,12 +209,16 @@ nnoremap <leader><tab> :bnext<CR>
 nnoremap <leader>` :bprevious<CR>
 nnoremap <leader>w :bd<CR>
 
-" Search currently selected text
+" Search selected text
 vnoremap <leader>s yq/p<CR>
 
+" Copy/paste to/from clipboard
+vnoremap <C-c> "+y<CR>
+inoremap <C-v> <ESC>:set paste<CR>"+p :set nopaste<CR>
+
 " Move cursor to beginning or EOL
-inoremap <C-e> <Esc>A
-inoremap <C-a> <Esc>I
+inoremap <C-e> <ESC>A
+inoremap <C-a> <ESC>I
 
 " Clear highlighting
 nnoremap <C-l> :noh<CR>
