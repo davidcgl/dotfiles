@@ -46,19 +46,6 @@
     "es6": false                               // enable all ECMAScript 6 features except for modules.
   },
 
-  "globals": {
-    "meteor": true
-  },
-
-  "ecmaFeatures": {
-    "jsx": true
-  },
-
-  "plugins": [
-    //  (must run `npm install eslint-plugin-*` as well )
-    "react"
-  ],
-
   "rules": {
     // ---------- Rules ----------
     // Rules in ESLint are divided into several categories to help you better
