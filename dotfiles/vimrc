@@ -141,6 +141,21 @@ nnoremap <leader>ss :execute "SaveSession" getcwd()<CR>
 nnoremap <leader>os :execute "OpenSession" getcwd()<CR>
 
 " ---------------------------------
+" vim-signify
+" ---------------------------------
+if AtGoogle()
+  Plugin 'mhinz/vim-signify'
+  let g:signify_vcs_list = ['perforce']
+  let g:signify_vcs_cmds = {
+        \ 'perforce': 'p4 info >& /dev/null && env G4MULTIDIFF=0 P4DIFF=%d p4 diff -dU0 %f'
+        \ }
+  let g:signify_skip_filename_pattern = ['\.pipertmp.*']
+  let g:signify_line_highlight = 1
+  let g:signify_disable_by_default = 1
+  nnoremap <leader>sg :SignifyToggle<CR>
+endif
+
+" ---------------------------------
 " YouCompleteMe
 " ---------------------------------
 if !AtGoogle()
