@@ -218,8 +218,8 @@ set updatetime=750      " for triggering tern_for_vim on_hold event
 
 " Switch buffers
 nnoremap <leader>t :enew<CR>
-nnoremap <leader><tab> :bnext<CR>
-nnoremap <leader>` :bprevious<CR>
+nnoremap <leader>] :bnext<CR>
+nnoremap <leader>[ :bprevious<CR>
 nnoremap <leader>w :bd<CR>
 
 " Search selected text
