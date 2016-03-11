@@ -216,11 +216,12 @@ set tabstop=2           " use 2 spaces to represent tab
 set wildmenu            " show autocomplete options
 set updatetime=750      " for triggering tern_for_vim on_hold event
 
-" Switch buffers
+" Buffers
 nnoremap <leader>t :enew<CR>
 nnoremap <leader>] :bnext<CR>
 nnoremap <leader>[ :bprevious<CR>
 nnoremap <leader>w :bd<CR>
+nnoremap <leader>wq :bp<bar>bd #<CR>
 
 " Search selected text
 vnoremap <leader>s yq/p<CR>
