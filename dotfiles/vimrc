@@ -1,9 +1,6 @@
 " ==============================================================================
 " Plugins
 " ==============================================================================
-set nocompatible
-filetype off
-
 function! AtGoogle()
   return filereadable(glob("$HOME/.at_google"))
 endfunction
@@ -17,14 +14,13 @@ if AtGoogle()
   source $HOME/.google.vim
 endif
 
-" Load Vundle plugins
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Install plugins via vim-plug
+call plug#begin('~/.vim/plugged')
 
 " ---------------------------------
 " bufexplorer
 " ---------------------------------
-Plugin 'jlanzarotta/bufexplorer'
+Plug 'jlanzarotta/bufexplorer'
 let g:bufExplorerFindActive = 0         " do not go to active window
 let g:bufExplorerShowRelativePath = 1   " show relative paths
 let g:bufExplorerSortBy = 'name'        " sort by filename
@@ -37,20 +33,20 @@ nnoremap <C-n><C-s> :BufExplorerHorizontalSplit<CR>
 " ------------------------------------
 " delimitMate
 " ------------------------------------
-Plugin 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 
 " ---------------------------------
 " ESFormatter
 " ---------------------------------
-Plugin 'millermedeiros/vim-esformatter'
+Plug 'millermedeiros/vim-esformatter'
 autocmd FileType javascript nnoremap <silent> <leader>es :Esformatter<CR>
 
 " ------------------------------------
 " fzf.vim
 " ------------------------------------
-Plugin 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'
 set rtp+=~/.fzf/
 if AtGoogleWorkspace()
   let $FZF_DEFAULT_COMMAND = 'fzf-g5-list'
@@ -65,7 +61,7 @@ nnoremap <C-p><C-l> :Lines<CR>
 " ------------------------------------
 " incsearch.vim
 " ------------------------------------
-Plugin 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch.vim'
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
@@ -73,16 +69,16 @@ map g/ <Plug>(incsearch-stay)
 " ---------------------------------
 " searchindex
 " ---------------------------------
-Plugin 'google/vim-searchindex'
+Plug 'google/vim-searchindex'
 let g:searchindex_improved_star = 0
 
 " ---------------------------------
 " Syntastic
 " ---------------------------------
-Plugin 'scrooloose/syntastic'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+Plug 'scrooloose/syntastic'
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
@@ -97,15 +93,15 @@ noremap <leader>sc :SyntasticCheck<CR>
 " ---------------------------------
 " UltiSnips
 " ---------------------------------
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 let g:UltiSnipsExpandTrigger = '<leader>e'
 
 " ------------------------------------
 " vim-airline
 " ------------------------------------
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 let g:airline_theme = 'badwolf'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -124,8 +120,8 @@ let g:airline#extensions#tabline#left_alt_sep = ''
 " ---------------------------------
 " vim-session / vim-misc
 " ---------------------------------
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-session'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
 let g:session_autoload = 'no'
 let g:session_autosave = 'yes'
 let g:session_verbose_messages = 0
@@ -136,7 +132,7 @@ nnoremap <leader>os :execute "OpenSession" getcwd()<CR>
 " vim-signify
 " ---------------------------------
 if AtGoogle()
-  Plugin 'mhinz/vim-signify'
+  Plug 'mhinz/vim-signify'
   let g:signify_vcs_list = ['perforce']
   let g:signify_vcs_cmds = {
         \ 'perforce': 'p4 info >& /dev/null && env G4MULTIDIFF=0 P4DIFF=%d p4 diff -dU0 %f'
@@ -151,7 +147,7 @@ endif
 " YouCompleteMe
 " ---------------------------------
 if !AtGoogle()
-  Plugin 'Valloric/YouCompleteMe'
+  Plug 'Valloric/YouCompleteMe'
   let g:ycm_autoclose_preview_window_after_completion = 1
   let g:ycm_autoclose_preview_window_after_insertion = 1
   let g:ycm_allow_changing_updatetime = 0 " set my own updatetime
@@ -160,21 +156,19 @@ endif
 " ---------------------------------
 " Other plugins
 " ---------------------------------
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'mattn/emmet-vim'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'pangloss/vim-javascript'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-scripts/matchit.zip'
+Plug 'altercation/vim-colors-solarized'
+Plug 'mattn/emmet-vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/matchit.zip'
 
-call vundle#end()
+call plug#end()
 
 " ==============================================================================
 " Options
 " ==============================================================================
-syntax on
-filetype plugin indent on
 
 set background=dark
 colorscheme solarized
