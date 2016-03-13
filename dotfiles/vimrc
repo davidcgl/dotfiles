@@ -95,12 +95,6 @@ let g:syntastic_mode_map = {
 noremap <leader>sc :SyntasticCheck<CR>
 
 " ---------------------------------
-" TernJS
-" ---------------------------------
-Plugin 'marijnh/tern_for_vim'
-let g:tern_show_argument_hints = 'on_hold'
-
-" ---------------------------------
 " UltiSnips
 " ---------------------------------
 Plugin 'SirVer/ultisnips'
@@ -120,6 +114,9 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
