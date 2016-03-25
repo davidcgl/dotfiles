@@ -1,9 +1,25 @@
-if [[ -e $HOME/.at_google ]]; then
-  source $HOME/.zshrc_google
-else
-  source $HOME/.zshrc_home
+# Source prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+if [[ -e ${HOME}/.at_google ]]; then
+  source ${HOME}/.zshrc_google
+else
+  source ${HOME}/.zshrc_home
+fi
+
+export EDITOR=vim
+export VISUAL=vim
+
+bindkey "^P" up-line-or-search
+bindkey "^N" down-line-or-search
+
+alias glola="git log --graph \
+  --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' \
+  --abbrev-commit
+  --all"
+alias gst="git status"
 alias ta="tmux attach"
 alias tl="tmux list-sessions"
 alias urldecode="python -c \"import sys, urllib as ul; \
@@ -15,7 +31,7 @@ alias urlencode="python -c \"import sys, urllib as ul; \
 # https://github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag --hidden --nogroup -l -g ""'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 
 # So Ctrl-s doesn't freeze my terminal
 # http://unix.stackexchange.com/questions/72086/ctrl-s-hang-terminal-emulator
