@@ -26,12 +26,12 @@
     "templateStrings": false,                  // enable template strings
     "unicodeCodePointEscapes": false,          // enable code point escapes
     "globalReturn": false,                     // allow return statements in the global scope
-    "jsx": false                               // enable JSX
+    "jsx": true                                // enable JSX
   },
 
   "env": {
-    "browser": false,                          // browser global variables.
-    "node": false,                             // Node.js global variables and Node.js-specific rules.
+    "browser": true,                          // browser global variables.
+    "node": true,                             // Node.js global variables and Node.js-specific rules.
     "worker": false,                           // web workers global variables.
     "amd": false,                              // defines require() and define() as global variables as per the amd spec.
     "mocha": false,                            // adds all of the Mocha testing global variables.
