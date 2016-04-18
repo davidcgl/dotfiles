@@ -148,8 +148,6 @@ endif
 " ---------------------------------
 if !AtGoogle()
   Plug 'Valloric/YouCompleteMe'
-  let g:ycm_autoclose_preview_window_after_completion = 1
-  let g:ycm_autoclose_preview_window_after_insertion = 1
 endif
 
 " ---------------------------------
@@ -178,6 +176,7 @@ hi Search cterm=bold ctermfg=0 ctermbg=7
 set autoindent          " copy indent from current line when starting new line
 set autoread            " reload file if its changed outside of vim
 set colorcolumn=81      " display vertical line margin
+set completeopt=menu    " 'preview' makes tabbing through YCM sluggish
 set expandtab           " enter spaces when tab is pressed
 set hidden              " don't unload buffer
 set history=1000        " keep last 1000 commands
