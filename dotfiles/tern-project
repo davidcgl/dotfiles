@@ -1,13 +1,13 @@
 {
+  "ecmaVersion": 6,
   "libs": [
     "browser",
     "jquery",
     "underscore"
   ],
   "loadEagerly": [ "*.js", "*/*.js", "*/*/*.js", "*/*/*/*.js" ],
-  "dontLoad": [ ".meteor" ],
+  "dontLoad": [ "" ],
   "plugins": {
-    "meteor": {},
     "node": {}
   }
 }
