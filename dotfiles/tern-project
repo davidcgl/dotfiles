@@ -1,11 +1,9 @@
 {
   "ecmaVersion": 6,
   "libs": [
-    "browser",
-    "jquery",
-    "underscore"
+    "browser"
   ],
-  "loadEagerly": [ "*.js", "*/*.js", "*/*/*.js", "*/*/*/*.js" ],
+  "loadEagerly": [ "*.js" ],
   "dontLoad": [ "" ],
   "plugins": {
     "node": {}
