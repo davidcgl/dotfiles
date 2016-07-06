@@ -80,10 +80,12 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint'
+if !AtGoogleWorkspace()
+  let g:syntastic_javascript_checkers = ['eslint']
+  let g:syntastic_javascript_eslint_exec = 'eslint'
+endif
 let g:syntastic_mode_map = {
   \ 'mode': 'passive',
   \ 'active_filetypes': [],
@@ -155,11 +157,12 @@ endif
 " ---------------------------------
 Plug 'altercation/vim-colors-solarized'
 Plug 'mattn/emmet-vim'
+Plug 'mxw/vim-jsx'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/matchit.zip'
 
 call plug#end()
@@ -200,8 +203,6 @@ set wildmenu            " show autocomplete options
 
 " Buffers
 nnoremap <leader>t :enew<CR>
-nnoremap <leader>] :bnext<CR>
-nnoremap <leader>[ :bprevious<CR>
 nnoremap <leader>w :bd<CR>
 nnoremap <leader>wq :bp<bar>bd #<CR>
 
@@ -215,9 +216,6 @@ inoremap <C-v> <ESC>:set paste<CR>"+p :set nopaste<CR>
 " Move cursor to beginning or EOL
 inoremap <C-e> <ESC>A
 inoremap <C-a> <ESC>I
-
-" Clear highlighting
-nnoremap <C-l> :noh<CR>
 
 " Strip trailing whitespace on save
 au FileType cpp,css,go,html,java,javascript au BufWritePre <buffer> :%s/\s\+$//e
