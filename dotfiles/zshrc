@@ -32,6 +32,7 @@ alias urlencode="python -c \"import sys, urllib as ul; \
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag --hidden --nogroup -l -g ""'
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
+export FZF_CTRL_R_OPTS="--exact"
 
 # So Ctrl-s doesn't freeze my terminal
 # http://unix.stackexchange.com/questions/72086/ctrl-s-hang-terminal-emulator
