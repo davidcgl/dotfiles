@@ -11,6 +11,7 @@ fi
 
 export EDITOR=vim
 export VISUAL=vim
+export TMUX_TMPDIR=/tmp
 
 bindkey "^P" up-line-or-search
 bindkey "^N" down-line-or-search
