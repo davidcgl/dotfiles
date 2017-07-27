@@ -2,19 +2,18 @@
 " Plugins
 " ==============================================================================
 function! AtGoogle()
-  return filereadable(glob("$HOME/.at_google"))
+  return filereadable(glob('$HOME/.vimrc_google'))
 endfunction
 
 function! AtGoogleWorkspace()
-  return filereadable(glob(getcwd() . "/WORKSPACE"))
+  return AtGoogle() && type(piperlib#GetDirType()) == type('')
 endfunction
 
-" Load Glug plugins
 if AtGoogle()
-  source $HOME/.google.vim
+  source $HOME/.vimrc_google
 endif
 
-" Install plugins via vim-plug
+" Install vim-plug plugins
 call plug#begin('~/.vim/plugged')
 
 " ---------------------------------
@@ -98,7 +97,7 @@ let g:UltiSnipsExpandTrigger = '<leader>e'
 " ------------------------------------
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-let g:airline_theme = 'badwolf'
+let g:airline_theme = 'base16'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
@@ -165,14 +164,20 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/matchit.zip'
 
+Plug 'chriskempson/base16-vim'
+
 call plug#end()
 
 " ==============================================================================
-" Options
+" Other options
 " ==============================================================================
 
 set background=dark
-colorscheme solarized
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+colorscheme base16-onedark
 hi IncSearch cterm=bold ctermfg=7 ctermbg=5
 hi Search cterm=bold ctermfg=0 ctermbg=7
 
