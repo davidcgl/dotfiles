@@ -152,6 +152,14 @@ if !AtGoogle()
 endif
 
 " ---------------------------------
+" Google
+" ---------------------------------
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+
+nnoremap <leader>fc :FormatCode<cr>
+
+" ---------------------------------
 " Other plugins
 " ---------------------------------
 Plug 'altercation/vim-colors-solarized'
