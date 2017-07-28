@@ -9,6 +9,11 @@ else
   source ${HOME}/.zshrc_home
 fi
 
+# For base16-shell
+# https://github.com/chriskempson/base16-shell
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
 export EDITOR=vim
 export VISUAL=vim
 export TMUX_TMPDIR=/tmp
