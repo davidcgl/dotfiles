@@ -160,26 +160,10 @@ Plug 'google/vim-codefmt'
 nnoremap <leader>fc :FormatCode<cr>
 
 " ---------------------------------
-" base16-vim
-" ---------------------------------
-Plug 'chriskempson/base16-vim'
-
-set background=dark
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
-colorscheme base16-onedark
-
-" Personal override of base16-onedark colorscheme
-hi LineNr   ctermfg=8 ctermbg=0
-hi Pmenu    ctermfg=0 ctermbg=7
-hi PmenuSel ctermfg=3 ctermbg=8
-
-" ---------------------------------
 " Other plugins
 " ---------------------------------
 Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/base16-vim'
 Plug 'mattn/emmet-vim'
 Plug 'mxw/vim-jsx'
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -194,6 +178,18 @@ call plug#end()
 " ==============================================================================
 " Other options
 " ==============================================================================
+
+set background=dark
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+colorscheme base16-onedark
+
+" Personal override of base16-onedark colorscheme
+hi LineNr   ctermfg=8 ctermbg=0
+hi Pmenu    ctermfg=0 ctermbg=7
+hi PmenuSel ctermfg=3 ctermbg=8
 
 set autoindent          " copy indent from current line when starting new line
 set autoread            " reload file if its changed outside of vim
