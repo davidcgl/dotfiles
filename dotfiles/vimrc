@@ -164,8 +164,7 @@ nnoremap <leader>fc :FormatCode<cr>
 " ---------------------------------
 Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/base16-vim'
-Plug 'mattn/emmet-vim'
-Plug 'mxw/vim-jsx'
+Plug 'elixir-lang/vim-elixir'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-commentary'
