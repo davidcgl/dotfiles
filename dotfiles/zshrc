@@ -39,7 +39,6 @@ export FZF_CTRL_R_OPTS="--exact"
 # http://unix.stackexchange.com/questions/72086/ctrl-s-hang-terminal-emulator
 stty -ixon
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Print 256 colors
