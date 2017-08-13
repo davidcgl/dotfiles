@@ -3,7 +3,7 @@
 var OFF = 0, WARN = 1, ERROR = 2;
 module.exports = {
   'parserOptions': {
-    'ecmaVersion': 6,
+    'ecmaVersion': 2017,
     'sourceType': 'module',
     'ecmaFeatures': {
       'jsx': true,
