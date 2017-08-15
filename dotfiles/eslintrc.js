@@ -1,7 +1,9 @@
 // Per project setup:
-//   yarn add --dev prettier eslint eslint-plugin-{react,prettier} eslint-config-prettier
+//   yarn add --dev \
+//      babel-eslint prettier eslint eslint-plugin-{react,prettier} eslint-config-prettier
 var OFF = 0, WARN = 1, ERROR = 2;
 module.exports = {
+  'parser': 'babel-eslint',
   'parserOptions': {
     'ecmaVersion': 2017,
     'sourceType': 'module',
