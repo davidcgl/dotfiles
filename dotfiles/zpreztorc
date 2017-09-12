@@ -9,13 +9,12 @@ zstyle ':prezto:*:*' color 'yes'
 # The order matters.
 zstyle ':prezto:load' pmodule \
   'environment' \
-  'terminal' \
   'editor' \
   'history' \
-  'syntax-highlighting' \
   'utility' \
   'completion' \
   'git' \
+  'syntax-highlighting' \
   'prompt'
 
 #
@@ -24,12 +23,6 @@ zstyle ':prezto:load' pmodule \
 
 # Set the key mapping style to 'emacs' or 'vi'.
 zstyle ':prezto:module:editor' key-bindings 'emacs'
-
-#
-# Git
-#
-
-zstyle ':prezto:module:git:log:brief' format '%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 
 #
 # Prompt
