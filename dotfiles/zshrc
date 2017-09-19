@@ -30,6 +30,14 @@ print_colors() {
   done
 }
 
+# Git credentials
+# https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage
+if [[ "$OSTYPE" == darwin* ]]; then
+  git config --global credential.helper osxkeychain
+elif [[ "$OSTYPE" == linux* ]]; then
+  git config --global credential.helper cache
+fi
+
 # Aliases
 alias ta="tmux attach"
 alias tl="tmux list-sessions"
