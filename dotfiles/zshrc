@@ -3,43 +3,25 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-if [[ -e ${HOME}/.at_google ]]; then
-  source ${HOME}/.zshrc_google
-else
-  source ${HOME}/.zshrc_home
-fi
-
-# For base16-shell
-# https://github.com/chriskempson/base16-shell
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-
 export EDITOR=vim
 export VISUAL=vim
 export TMUX_TMPDIR=/tmp
-
-bindkey "^P" up-line-or-search
-bindkey "^N" down-line-or-search
-
-alias gst="git status"
-alias ta="tmux attach"
-alias tl="tmux list-sessions"
-alias urldecode="python -c \"import sys, urllib as ul; \
-  print ul.unquote_plus(sys.argv[1])\""
-alias urlencode="python -c \"import sys, urllib as ul; \
-  print ul.quote_plus(sys.argv[1])\""
 
 # Fuzzy Finder
 # https://github.com/junegunn/fzf
 export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 export FZF_CTRL_R_OPTS="--exact"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Base16-shell
+# https://github.com/chriskempson/base16-shell
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # So Ctrl-s doesn't freeze my terminal
 # http://unix.stackexchange.com/questions/72086/ctrl-s-hang-terminal-emulator
 stty -ixon
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Print 256 colors
 print_colors() {
@@ -47,3 +29,18 @@ print_colors() {
     printf '\033[1;38;5;%dmcolor %d\n' "$i" "$i"
   done
 }
+
+# Aliases
+alias ta="tmux attach"
+alias tl="tmux list-sessions"
+alias urldecode="python -c \"import sys, urllib as ul; \
+  print ul.unquote_plus(sys.argv[1])\""
+alias urlencode="python -c \"import sys, urllib as ul; \
+  print ul.quote_plus(sys.argv[1])\""
+
+# Source work/home specific zshrc
+if [[ -e ${HOME}/.at_google ]]; then
+  source ${HOME}/.zshrc_google
+else
+  source ${HOME}/.zshrc_home
+fi
