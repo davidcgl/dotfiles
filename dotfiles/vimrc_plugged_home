@@ -21,9 +21,6 @@ nnoremap <leader>fc :FormatCode<cr>
 " ------------------------------------
 Plug 'junegunn/fzf.vim'
 set rtp+=~/.fzf/
-if AtGoogleWorkspace()
-  let $FZF_DEFAULT_COMMAND = 'fzf-g5-list'
-endif
 nnoremap <C-p><C-p> :Files<CR>
 nnoremap <C-p><C-v> :vsplit<CR>:Files<CR>
 nnoremap <C-p><C-s> :split<CR>:Files<CR>
