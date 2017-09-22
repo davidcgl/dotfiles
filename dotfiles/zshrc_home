@@ -1,7 +1,6 @@
 # My path
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=$HOME/homebrew/bin:$PATH
-export PATH=$HOME/anaconda2/bin:$PATH
 
 # Golang
 export GOPATH=$HOME/workplace/go
