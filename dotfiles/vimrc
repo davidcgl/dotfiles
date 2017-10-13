@@ -33,11 +33,9 @@ nnoremap <C-n><C-v> :BufExplorerVerticalSplit<CR>
 nnoremap <C-n><C-s> :BufExplorerHorizontalSplit<CR>
 
 " ------------------------------------
-" delimitMate
+" auto-pairs
 " ------------------------------------
-Plug 'Raimondi/delimitMate'
-let g:delimitMate_expand_cr = 1
-let g:delimitMate_expand_space = 1
+Plug 'jiangmiao/auto-pairs'
 
 " ---------------------------------
 " ESFormatter
@@ -122,6 +120,7 @@ if filereadable(expand("~/.vimrc_background"))
 endif
 colorscheme base16-onedark
 
+
 " Override some of base16-onedark colorscheme
 hi Comment      ctermfg=243
 hi CursorLine               ctermbg=18
@@ -137,7 +136,6 @@ set autoindent          " copy indent from current line when starting new line
 set autoread            " reload file if its changed outside of vim
 set colorcolumn=81      " display vertical line margin
 set completeopt=menu    " 'preview' makes tabbing through YCM sluggish
-set cursorline          " highlight current line
 set expandtab           " enter spaces when tab is pressed
 set hidden              " don't unload buffer
 set history=1000        " keep last 1000 commands
