@@ -1,6 +1,9 @@
-# Source prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+# ==============================================================================
+# General
+# ------------------------------------------------------------------------------
+
+if [[ -s "${HOME}/.zprezto/init.zsh" ]]; then
+  source "${HOME}/.zprezto/init.zsh"
 fi
 
 export EDITOR=vim
@@ -16,12 +19,63 @@ export FZF_CTRL_R_OPTS="--exact"
 
 # Base16-shell
 # https://github.com/chriskempson/base16-shell
-BASE16_SHELL=$HOME/.config/base16-shell/
+BASE16_SHELL=${HOME}/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # So Ctrl-s doesn't freeze my terminal
 # http://unix.stackexchange.com/questions/72086/ctrl-s-hang-terminal-emulator
 stty -ixon
+
+# Make copy-paste work the same across OSX and Ubuntu.
+if [[ "$OSTYPE" == linux* ]]; then
+ if (( $+commands[xclip] )); then
+    alias pbcopy='xclip -selection clipboard -in'
+    alias pbpaste='xclip -selection clipboard -out'
+  elif (( $+commands[xsel] )); then
+    alias pbcopy='xsel --clipboard --input'
+    alias pbpaste='xsel --clipboard --output'
+  fi
+fi
+
+alias pbc='pbcopy'
+alias pbp='pbpaste'
+
+# ls
+if is-callable 'dircolors'; then
+  # GNU Core Utilities
+  if [[ -s "${HOME}/.dir_colors" ]]; then
+    eval "$(dircolors --sh "${HOME}/.dir_colors")"
+  else
+    eval "$(dircolors --sh)"
+  fi
+  alias ls="ls --group-directories-first --color=auto"
+else
+  # BSD Core Utilities
+  # Define colors for BSD ls.
+  export LSCOLORS='exfxcxdxbxGxDxabagacad'
+  # Define colors for the completion system.
+  export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
+  alias ls="ls -G"
+fi
+
+alias l='ls -1A'
+alias ll='ls -lh'
+alias la='ls -lhA'
+
+# ==============================================================================
+# Aliases
+# ------------------------------------------------------------------------------
+
+alias ta="tmux attach"
+alias tl="tmux list-sessions"
+alias urldecode="python -c \"import sys, urllib as ul; \
+  print ul.unquote_plus(sys.argv[1])\""
+alias urlencode="python -c \"import sys, urllib as ul; \
+  print ul.quote_plus(sys.argv[1])\""
+
+# ==============================================================================
+# Functions
+# ------------------------------------------------------------------------------
 
 # Print 256 colors
 print_colors() {
@@ -30,15 +84,10 @@ print_colors() {
   done
 }
 
-# Aliases
-alias ta="tmux attach"
-alias tl="tmux list-sessions"
-alias urldecode="python -c \"import sys, urllib as ul; \
-  print ul.unquote_plus(sys.argv[1])\""
-alias urlencode="python -c \"import sys, urllib as ul; \
-  print ul.quote_plus(sys.argv[1])\""
+# ==============================================================================
+# Home/work specific zshrc
+# ------------------------------------------------------------------------------
 
-# Source work/home specific zshrc
 if [[ -e ${HOME}/.at_google ]]; then
   source ${HOME}/.zshrc_google
 else
