@@ -147,6 +147,7 @@ set number              " line number
 set pastetoggle=<F10>   " toggle paste mode
 set relativenumber      " relative number to current line
 set ruler               " display row and column of cursor (bottom right)
+set cursorline          " highlight line where cursor is
 set shiftwidth=2        " number of spaces to use for auto indent
 set showcmd             " show partial command in last line of screen
 set showmatch           " show matching bracket
