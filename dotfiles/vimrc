@@ -71,13 +71,8 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 let g:airline_symbols.maxlinenr = ''
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-
-" ---------------------------------
-" vim-go
-" ---------------------------------
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = ' '
 
 " ---------------------------------
 " vim-session / vim-misc
@@ -96,11 +91,14 @@ nnoremap <leader>os :execute "OpenSession" getcwd()<CR>
 Plug 'chriskempson/base16-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mattn/emmet-vim'
-Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/matchit.zip'
+
+Plug 'sheerun/vim-polyglot'
+let g:polyglot_disabled = ['html', 'jsx']
+
 
 call plug#end()
 
