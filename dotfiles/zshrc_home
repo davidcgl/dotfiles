@@ -1,6 +1,7 @@
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=/usr/local/opt/python/libexec/bin:$PATH
 export PATH=$HOME/homebrew/bin:$PATH
+export PATH=$HOME/bin/google-cloud-sdk/bin:$PATH
 
 export GOPATH=$HOME/workplace/go
 export PATH=$PATH:$GOPATH/bin
