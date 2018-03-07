@@ -96,10 +96,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/matchit.zip'
 
-Plug 'sheerun/vim-polyglot'
-let g:polyglot_disabled = ['html', 'jsx']
-
-
 call plug#end()
 
 " ==============================================================================
@@ -183,3 +179,6 @@ au FileType cpp,css,go,html,java,javascript au BufWritePre <buffer> :%s/\s\+$//e
 
 " Use // as commentstring
 au FileType cpp,java,javascript setlocal commentstring=//\ %s
+
+" Column limit is 100 for java files.
+au FileType java setlocal colorcolumn=101

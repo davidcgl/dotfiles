@@ -46,3 +46,8 @@ let g:syntastic_mode_map = {
   \ 'active_filetypes': [],
   \ 'passive_filetypes': ['html', 'css'] }
 noremap <leader>sc :SyntasticCheck<CR>
+
+" ---------------------------------
+" Others
+" ---------------------------------
+Plug 'sheerun/vim-polyglot'

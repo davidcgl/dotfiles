@@ -26,6 +26,15 @@ BASE16_SHELL=${HOME}/.config/base16-shell/
 # http://unix.stackexchange.com/questions/72086/ctrl-s-hang-terminal-emulator
 stty -ixon
 
+# If not in tmux, update the DISPLAY cache.
+# If we are, update the value of DISPLAY to be that in the cache.
+# http://alexteichman.com/octo/blog/2014/01/01/x11-forwarding-and-terminal-multiplexers
+if [[ -z "$TMUX" ]]; then
+  echo $DISPLAY > ${HOME}/.display.txt
+else
+  export DISPLAY=$(cat ${HOME}/.display.txt)
+fi
+
 # Make copy-paste work the same across OSX and Ubuntu.
 if [[ "$OSTYPE" == linux* ]]; then
  if (( $+commands[xclip] )); then
