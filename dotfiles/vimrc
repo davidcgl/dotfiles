@@ -131,12 +131,12 @@ set history=1000        " keep last 1000 commands
 set hlsearch            " highlight last searched item
 set ignorecase          " case insensitive search and substitute
 set incsearch           " search as you type
+set lazyredraw          " don't redraw while executing macros, etc
 set laststatus=2        " always show status line
 set number              " line number
 set pastetoggle=<F10>   " toggle paste mode
 set relativenumber      " relative number to current line
 set ruler               " display row and column of cursor (bottom right)
-set cursorline          " highlight line where cursor is
 set shiftwidth=2        " number of spaces to use for auto indent
 set showcmd             " show partial command in last line of screen
 set showmatch           " show matching bracket
@@ -145,6 +145,7 @@ set splitbelow          " make split to below
 set splitright          " make vsplit to the right
 set softtabstop=2       " setting to equal tabstop to use all spaces only
 set tabstop=2           " use 2 spaces to represent tab
+set ttyfast             " may improve smoothness in redrawing?
 set wildmenu            " show autocomplete options
 
 " Buffers
