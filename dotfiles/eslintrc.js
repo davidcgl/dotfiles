@@ -1,33 +1,26 @@
-// Per project setup:
-//   yarn add --dev \
-//      babel-eslint prettier eslint eslint-plugin-{react,prettier} eslint-config-prettier
-var OFF = 0, WARN = 1, ERROR = 2;
+var OFF = 0,
+  WARN = 1,
+  ERROR = 2;
 module.exports = {
-  'parser': 'babel-eslint',
-  'parserOptions': {
-    'ecmaVersion': 2017,
-    'sourceType': 'module',
-    'ecmaFeatures': {
-      'jsx': true,
-      'experimentalObjectRestSpread': true
+  parserOptions: {
+    ecmaVersion: 2018,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true
     }
   },
-  'env': {
-    'browser': true,
-    'node': true,
-    'es6': true,
-    'jest': true
+  env: {
+    browser: true,
+    node: true,
+    jest: true
   },
-  'plugins': [
-    'react',
-    'prettier',
-  ],
-  'extends': [
-    'eslint:recommended',
-    'plugin:react/recommended'
-  ],
-  'rules': {
+  plugins: ['prettier'],
+  extends: ['airbnb', 'prettier'],
+  rules: {
     // Allow console logs.
-    'no-console': OFF
+    'no-console': OFF,
+
+    // Allow .js and .jsx files to contain JSX.
+    'react/jsx-filename-extension': [WARN, { extensions: ['.js', '.jsx'] }]
   }
-}
+};
