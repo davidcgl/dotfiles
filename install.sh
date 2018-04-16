@@ -18,4 +18,4 @@ for FILE in `ls ${SRC_DIR}`; do
     echo_and_eval "ln -s ${SRC_FILE} ${DST_FILE}"
 done
 
-echo_and_eval "source ./generate_git_config"
+echo_and_eval "source ./generate_git_config.sh"
