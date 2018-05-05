@@ -9,6 +9,9 @@ npm info "$PKG@latest" peerDependencies --json \
   | command sed 's/[\{\},]//g ; s/: /@/g' \
   | xargs yarn add --dev "$PKG@latest"
 
+# Install babel-eslint because we use it in eslintrc.js
+yarn add --dev babel-eslint
+
 # Install prettier
 yarn add --dev prettier eslint-plugin-prettier eslint-config-prettier
 
