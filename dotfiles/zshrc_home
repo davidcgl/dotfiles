@@ -1,9 +1,14 @@
-export GOPATH="$HOME/workplace/go"
-export PATH="$GOPATH/bin:$PATH"
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+# Google Cloud SDK
 export PATH="$HOME/bin/google-cloud-sdk/bin:$PATH"
 
-# Homebrew bins
+# Golang
+export GOPATH="$HOME/workplace/go"
+export PATH="$GOPATH/bin:$PATH"
+
+# Python
+export PATH="$HOME/anaconda3/bin:$PATH"
+
+# Homebrew
 export PATH=$HOME/homebrew/bin:$PATH
 export LD_LIBRARY_PATH=$HOME/homebrew/lib:$LD_LIBRARY_PATH
 
