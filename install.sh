@@ -5,7 +5,7 @@ echo_and_eval() {
   eval "$1"
 }
 
-ROOT_DIR=`pwd`
+ROOT_DIR=$(pwd)
 SRC_DIR=dotfiles
 
 # Create symlinks to all dotfiles in this directory.
@@ -17,5 +17,3 @@ for FILE in `ls ${SRC_DIR}`; do
     fi
     echo_and_eval "ln -s ${SRC_FILE} ${DST_FILE}"
 done
-
-echo_and_eval "source ./generate_git_config.sh"
