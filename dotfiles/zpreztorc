@@ -10,10 +10,9 @@ zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule \
   'environment' \
   'editor' \
-  'history' \
-  'history-substring-search' \
   'completion' \
   'git' \
+  'history' \
   'syntax-highlighting' \
   'prompt'
 
