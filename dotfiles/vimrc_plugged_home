@@ -19,8 +19,8 @@ nnoremap <leader>fc :FormatCode<cr>
 " ------------------------------------
 " fzf.vim
 " ------------------------------------
+Plug '~/homebrew/opt/fzf'
 Plug 'junegunn/fzf.vim'
-set rtp+=~/.fzf/
 nnoremap <C-p><C-p> :Files<CR>
 nnoremap <C-p><C-v> :vsplit<CR>:Files<CR>
 nnoremap <C-p><C-s> :split<CR>:Files<CR>
