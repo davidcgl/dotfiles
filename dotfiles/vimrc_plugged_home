@@ -19,7 +19,7 @@ nnoremap <leader>fc :FormatCode<cr>
 " ------------------------------------
 " fzf.vim
 " ------------------------------------
-Plug '~/homebrew/opt/fzf'
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 nnoremap <C-p><C-p> :Files<CR>
 nnoremap <C-p><C-v> :vsplit<CR>:Files<CR>

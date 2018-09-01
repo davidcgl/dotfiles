@@ -1,9 +1,5 @@
-# Homebrew
-export PATH=${HOME}/homebrew/bin:${PATH}
-export LD_LIBRARY_PATH=${HOME}/homebrew/lib:${LD_LIBRARY_PATH}
-
-# Python
-export PATH=${HOME}/miniconda3/bin:${PATH}
+# python and pip symlinks added by Homebrew
+export PATH=/usr/local/opt/python/libexec/bin:${PATH}
 
 # Google Cloud SDK
 export PATH=${HOME}/bin/google-cloud-sdk/bin:${PATH}
