@@ -12,7 +12,8 @@ export TMUX_TMPDIR=/tmp
 
 # Fuzzy Finder
 # https://github.com/junegunn/fzf
-export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+export FZF_ALT_C_COMMAND="fd --type d --hidden --exclude .git"
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 export FZF_CTRL_R_OPTS="--exact"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
