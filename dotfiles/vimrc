@@ -1,23 +1,8 @@
 " ==============================================================================
 " Plugins
 " ==============================================================================
-function! AtGoogle()
-  return filereadable(glob('$HOME/.vimrc_google'))
-endfunction
-
-if AtGoogle()
-  source $HOME/.vimrc_google
-endif
-
 " Install vim-plug plugins
 call plug#begin('~/.vim/plugged')
-
-" Source work-only or home-only plugins
-if AtGoogle()
-  source $HOME/.vimrc_plugged_google
-else
-  source $HOME/.vimrc_plugged_home
-endif
 
 " ---------------------------------
 " bufexplorer
@@ -32,12 +17,6 @@ nnoremap <C-n><C-n> :ToggleBufExplorer<CR>
 nnoremap <C-n><C-v> :BufExplorerVerticalSplit<CR>
 nnoremap <C-n><C-s> :BufExplorerHorizontalSplit<CR>
 
-" ---------------------------------
-" ESFormatter
-" ---------------------------------
-Plug 'millermedeiros/vim-esformatter'
-autocmd FileType javascript nnoremap <silent> <leader>es :Esformatter<CR>
-
 " ------------------------------------
 " incsearch.vim
 " ------------------------------------
@@ -45,13 +24,6 @@ Plug 'haya14busa/incsearch.vim'
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
-
-" ---------------------------------
-" UltiSnips
-" ---------------------------------
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-let g:UltiSnipsExpandTrigger = '<leader>e'
 
 " ------------------------------------
 " vim-airline
@@ -70,7 +42,7 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 let g:airline_symbols.maxlinenr = ''
-let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = ' '
 
@@ -86,16 +58,38 @@ nnoremap <leader>ss :execute "SaveSession" getcwd()<CR>
 nnoremap <leader>os :execute "OpenSession" getcwd()<CR>
 
 " ---------------------------------
+" Google
+" ---------------------------------
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+
+nnoremap <leader>fc :FormatCode<cr>
+
+" ------------------------------------
+" fzf.vim
+" ------------------------------------
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+nnoremap <C-p><C-p> :Files<CR>
+nnoremap <C-p><C-o> :Buffers<CR>
+nnoremap <C-p><C-v> :vsplit<CR>:Files<CR>
+nnoremap <C-p><C-s> :split<CR>:Files<CR>
+nnoremap <C-p><C-f> :BLines<CR>
+nnoremap <C-p><C-l> :Lines<CR>
+
+" ---------------------------------
 " Other plugins
 " ---------------------------------
 Plug 'chriskempson/base16-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mattn/emmet-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/matchit.zip'
-Plug 'pangloss/vim-javascript'
 
 call plug#end()
 
@@ -124,6 +118,7 @@ hi Todo                     ctermbg=0   cterm=bold
 
 set autoindent          " copy indent from current line when starting new line
 set autoread            " reload file if its changed outside of vim
+set backspace=2         " make backspace work like most other programs
 set colorcolumn=81      " display vertical line margin
 set completeopt=menu    " 'preview' makes tabbing through YCM sluggish
 set expandtab           " enter spaces when tab is pressed
