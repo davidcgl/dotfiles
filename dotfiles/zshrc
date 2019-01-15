@@ -103,8 +103,8 @@ print_colors() {
 # Home/work specific zshrc
 # ------------------------------------------------------------------------------
 
-if [[ -e ${HOME}/.at_google ]]; then
-  source ${HOME}/.zshrc_google
+if [[ -e ${HOME}/.at_work ]]; then
+  source ${HOME}/.zshrc_work
 else
   source ${HOME}/.zshrc_home
 fi
