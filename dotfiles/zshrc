@@ -68,6 +68,11 @@ else
   alias ls="ls -G"
 fi
 
+# Ruby
+if which rbenv > /dev/null; then
+  eval "$(rbenv init -)";
+fi
+
 alias l='ls -1A'
 alias ll='ls -lh'
 alias la='ls -lhA'
