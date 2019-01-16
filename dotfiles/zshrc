@@ -81,6 +81,7 @@ alias la='ls -lhA'
 # Aliases
 # ------------------------------------------------------------------------------
 
+alias rgs="rg --no-filename --no-heading --no-line-number"
 alias ta="tmux attach"
 alias tl="tmux list-sessions"
 alias urldecode="python -c \"import sys, urllib as ul; \
