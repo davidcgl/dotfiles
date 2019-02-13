@@ -27,15 +27,6 @@ BASE16_SHELL=${HOME}/.config/base16-shell/
 # http://unix.stackexchange.com/questions/72086/ctrl-s-hang-terminal-emulator
 stty -ixon
 
-# If we are in tmux, update the value of DISPLAY to be that in the cache.
-# If not, update the DISPLAY cache.
-# http://alexteichman.com/octo/blog/2014/01/01/x11-forwarding-and-terminal-multiplexers
-# if [[ -z "$TMUX" ]]; then
-#   echo $DISPLAY > ${HOME}/.display.txt
-# else
-#   export DISPLAY=$(cat ${HOME}/.display.txt)
-# fi
-
 # Make copy-paste work the same across OSX and Ubuntu.
 if [[ "$OSTYPE" == linux* ]]; then
  if (( $+commands[xclip] )); then
@@ -73,15 +64,25 @@ if which rbenv > /dev/null; then
   eval "$(rbenv init -)";
 fi
 
-alias l='ls -1A'
-alias ll='ls -lh'
-alias la='ls -lhA'
-
 # ==============================================================================
 # Aliases
 # ------------------------------------------------------------------------------
 
-alias glg='git log --graph --oneline --branches --topo-order'
+alias l='ls -1A'
+alias ll='ls -lh'
+alias la='ls -lhA'
+alias gl="git log --topo-order \
+  --pretty=format:'%C(bold)Commit:%C(reset) %C(yellow)%H%C(auto)%d%n%C(bold)Author:%C(reset) %C(blue)%an <%ae>%n%C(bold)Date:%C(reset)   %C(magenta)%ai (%ar)%C(reset)%n%+B'"
+alias glb="git log --topo-order \
+  --format='%C(yellow)%h%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset)'"
+alias glo="git log --topo-order --date=short \
+  --format='%C(yellow)%h%C(reset) %C(magenta)%ad%C(reset) %C(blue)%aN%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset)'"
+alias glg="git log --graph --all --date=short \
+  --format='%C(yellow)%h%C(reset) %C(magenta)%ad%C(reset) %C(blue)%aN%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset)'"
+alias gls="git log --topo-order --stat \
+  --pretty=format:'%C(bold)Commit:%C(reset) %C(yellow)%H%C(auto)%d%n%C(bold)Author:%C(reset) %C(blue)%an <%ae>%n%C(bold)Date:%C(reset)   %C(magenta)%ai (%ar)%C(reset)%n%+B'"
+alias gld="git log --topo-order --stat --patch --full-diff \
+  --pretty=format:'%C(bold)Commit:%C(reset) %C(yellow)%H%C(auto)%d%n%C(bold)Author:%C(reset) %C(blue)%an <%ae>%n%C(bold)Date:%C(reset)   %C(magenta)%ai (%ar)%C(reset)%n%+B'"
 alias rgs="rg --no-filename --no-heading --no-line-number"
 alias ta="tmux attach"
 alias tl="tmux list-sessions"
