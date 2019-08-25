@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+cd ~/Dropbox/docs
+
+echo "========================================================================="
+echo "Syncing files to Google Drive"
+echo "========================================================================="
+rsync -avPhR . ~/Google\ Drive/docs
