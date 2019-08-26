@@ -1,0 +1,62 @@
+# Please indent options with one tab when editing defaults in
+# https://github.com/stripe-internal/marionette-puppet-config/blob/master/modules/git/templates/gitconfig.erb
+# That matches how "git config --global" edits the file.
+
+[user]
+  name = "David Chen"
+  useConfigOnly = true
+
+[push]
+  default = simple
+
+[core]
+  commitGraph = true
+
+[alias]
+  branch-name = !git rev-parse --abbrev-ref HEAD
+
+  # Run git diff using diff-so-fancy UI
+  df = "!df() { git diff $* | diff-so-fancy | less --tabs=4 -RFX; }; df"
+
+  # Show all files different from master
+  dff = !git diff --name-only
+
+  # Show all files different from master
+  dfm = !git diff --name-only master...
+
+  # Show all modified and untracked files
+  opened = !git ls-files --modified --others --exclude-standard
+
+  # Publish branch upstream
+  publish = "!git push -u origin $(git branch-name)"
+
+
+[diff]
+  tool = default-difftool
+
+[difftool "default-difftool"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+
+[gc]
+  writeCommitGraph = true
+
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+
+[color "diff"]
+  meta = yellow
+  frag = magenta bold
+  commit = yellow bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+
+[status]
+  showUntrackedFiles = all
+
+[include]
+  path = ~/.gitconfig_stripe
+
