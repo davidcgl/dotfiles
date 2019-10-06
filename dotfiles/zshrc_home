@@ -6,3 +6,9 @@ export PATH=${HOME}/bin/google-cloud-sdk/bin:${PATH}
 
 # Personal bins
 export PATH=${HOME}/bin:${PATH}
+
+# For rbenv
+eval "$(rbenv init -)"
+
+# For nodenv
+eval "$(nodenv init -)"

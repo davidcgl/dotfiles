@@ -3,8 +3,9 @@
 # That matches how "git config --global" edits the file.
 
 [user]
-  name = "David Chen"
+	name = David Chen
   useConfigOnly = true
+	email = cgl.david@gmail.com
 
 [push]
   default = simple
@@ -60,3 +61,5 @@
 [include]
   path = ~/.gitconfig_stripe
 
+[credential]
+	helper = osxkeychain
