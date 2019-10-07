@@ -30,6 +30,9 @@
   # Publish branch upstream
   publish = "!git push -u origin $(git branch-name)"
 
+  # Remove local branches that don't have a remote branch
+  cleanup = !git branch -vv | grep 'origin.*gone]' | awk '{print $1}' | xargs git branch -D
+
 
 [diff]
   tool = default-difftool
