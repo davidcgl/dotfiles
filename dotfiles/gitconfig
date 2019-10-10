@@ -7,7 +7,7 @@
   useConfigOnly = true
 
 [push]
-  default = simple
+	default = current
 
 [core]
   commitGraph = true
