@@ -1,14 +1,11 @@
-# python and pip symlinks added by Homebrew
 export PATH=/usr/local/opt/python/libexec/bin:${PATH}
-
-# Google Cloud SDK
 export PATH=${HOME}/bin/google-cloud-sdk/bin:${PATH}
-
-# Personal bins
 export PATH=${HOME}/bin:${PATH}
 
-# For rbenv
-eval "$(rbenv init -)"
+if which rbenv > /dev/null; then
+  eval "$(rbenv init -)";
+fi
 
-# For nodenv
-eval "$(nodenv init -)"
+if which nodenv > /dev/null; then
+  eval "$(nodenv init -)";
+fi
