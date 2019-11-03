@@ -6,9 +6,6 @@
 	name = David Chen
   useConfigOnly = true
 
-[push]
-	default = current
-
 [core]
   commitGraph = true
 
@@ -36,6 +33,7 @@
 
 [diff]
   tool = default-difftool
+	noprefix = true
 
 [difftool "default-difftool"]
   cmd = code --wait --diff $LOCAL $REMOTE
