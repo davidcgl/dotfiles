@@ -54,6 +54,14 @@ else
   alias ls="ls -G"
 fi
 
+# History
+HISTSIZE=1000000
+SAVEHIST=1000000
+HISTFILE="${HOME}/.zhistory"
+setopt SHARE_HISTORY # Share history between all sessions.
+setopt HIST_SAVE_NO_DUPS # does not write a duplicate event to the history file.
+
+
 # ==============================================================================
 # Aliases
 # ------------------------------------------------------------------------------
