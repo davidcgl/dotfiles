@@ -61,6 +61,14 @@ HISTFILE="${HOME}/.zhistory"
 setopt SHARE_HISTORY # Share history between all sessions.
 setopt HIST_SAVE_NO_DUPS # does not write a duplicate event to the history file.
 
+# Use Emacs key bindings.
+bindkey -e
+
+# In Bash, Ctrl-u clears the text from cursor to the beginning of the line.
+# In Zsh, Ctrl-u is bound to `kill-whole-line`. I almost never need to kill the
+# whole line, so remapping this to match Bash's behavior.
+bindkey \^U backward-kill-line
+
 
 # ==============================================================================
 # Aliases
