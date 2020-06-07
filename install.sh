@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-echo_and_eval() {
+run() {
   echo "$1"
   eval "$1"
 }
@@ -8,12 +8,16 @@ echo_and_eval() {
 ROOT_DIR=$(pwd)
 SRC_DIR=dotfiles
 
-# Create symlinks to all dotfiles in this directory.
-for FILE in `ls ${SRC_DIR}`; do
-    SRC_FILE=${ROOT_DIR}/${SRC_DIR}/${FILE}
-    DST_FILE=${HOME}/.${FILE}
-    if [[ -h ${DST_FILE} || -e ${DST_FILE} ]]; then
-        rm ${DST_FILE}
-    fi
-    echo_and_eval "ln -s ${SRC_FILE} ${DST_FILE}"
+# Copy dotfiles to home directory.
+for FILE in gitconfig tmux.conf vimrc zpreztorc zshrc zshrc_common zshrc_home; do
+  SRC_FILE=${ROOT_DIR}/${SRC_DIR}/${FILE}
+  DST_FILE=${HOME}/.${FILE}
+  run "rm -f ${DST_FILE}"
+  run "ln -s ${SRC_FILE} ${DST_FILE}"
 done
+
+# Copy init.nvim
+run "mkdir -p ${HOME}/.config/nvim"
+run "rm -f ${HOME}/.config/nvim/init.vim"
+run "ln -s ${ROOT_DIR}/${SRC_DIR}/init.vim ${HOME}/.config/nvim/init.vim"
+
