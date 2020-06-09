@@ -10,7 +10,14 @@
   commitGraph = true
 
 [alias]
+  # Show current branch name.
   branch-name = !git rev-parse --abbrev-ref HEAD
+
+  # Overwrite the last commit, don't ask.
+  cane = commit --amend --no-edit
+
+  # Remove local branches that don't have a remote branch
+  cleanup = !git branch -vv | grep 'origin.*gone]' | awk '{print $1}' | xargs git branch -D
 
   # Run git diff using diff-so-fancy UI
   df = "!df() { git diff $* | diff-so-fancy | less --tabs=4 -RFX; }; df"
@@ -21,14 +28,14 @@
   # Show all files different from master
   dfm = !git diff --name-only master...
 
+  # Show the latest log
+  last = log -1 HEAD
+
   # Show all modified and untracked files
   opened = !git ls-files --modified --others --exclude-standard
 
   # Publish branch upstream
   publish = "!git push -u origin $(git branch-name)"
-
-  # Remove local branches that don't have a remote branch
-  cleanup = !git branch -vv | grep 'origin.*gone]' | awk '{print $1}' | xargs git branch -D
 
 
 [diff]
