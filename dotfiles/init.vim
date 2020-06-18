@@ -17,5 +17,10 @@ else
   set clipboard+=unnamedplus
 
   " Clear highlighting.
-  nnoremap <C-l> :noh<CR>
+  nnoremap <C-l> :noh<CR> 
+
+  set ignorecase          " case insensitive search and substitute
+  set incsearch           " search as you type
+  set showcmd             " show partial command in last line of screen
+  set smartcase           " case insensitive when searching all lowercase
 endif
