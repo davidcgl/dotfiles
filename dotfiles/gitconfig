@@ -3,11 +3,13 @@
 # That matches how "git config --global" edits the file.
 
 [user]
-	name = David Chen
+  name = David Chen
   useConfigOnly = true
 
 [core]
   commitGraph = true
+  splitIndex = true
+  untrackedCache = true
 
 [alias]
   # Show current branch name.
@@ -44,7 +46,7 @@
 
 [diff]
   tool = default-difftool
-	noprefix = true
+  noprefix = true
 
 [difftool "default-difftool"]
   cmd = code --wait --diff $LOCAL $REMOTE
@@ -53,7 +55,7 @@
   writeCommitGraph = true
 
 [help]
-	autoCorrect = 1
+  autoCorrect = 1
 
 [color "diff-highlight"]
   oldNormal = red bold
@@ -76,4 +78,7 @@
   path = ~/.gitconfig_stripe
 
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
+
+[hub]
+  host = git.corp.stripe.com
