@@ -74,9 +74,17 @@ bindkey \^U backward-kill-line
 # Aliases
 # ------------------------------------------------------------------------------
 
-alias l='ls -1A'
-alias ll='ls -lh'
-alias la='ls -lhA'
+alias l="ls -1A"
+alias ll="ls -lh"
+alias la="ls -lhA"
+alias gb="git branch"
+alias gbd="git branch -d"
+alias gbD="git branch -D"
+alias gco="git checkout"
+alias gc="git commit --verbose"
+alias gca="git commit --verbose --all"
+alias gcam="git commit --verbose --all --message"
+alias gf="git fetch"
 alias gl="git log --topo-order \
   --pretty=format:'%C(bold)Commit:%C(reset) %C(yellow)%H%C(auto)%d%n%C(bold)Author:%C(reset) %C(blue)%an <%ae>%n%C(bold)Date:%C(reset)   %C(magenta)%ai (%ar)%C(reset)%n%+B'"
 alias glb="git log --topo-order \
@@ -91,7 +99,14 @@ alias gls="git log --topo-order --stat \
   --pretty=format:'%C(bold)Commit:%C(reset) %C(yellow)%H%C(auto)%d%n%C(bold)Author:%C(reset) %C(blue)%an <%ae>%n%C(bold)Date:%C(reset)   %C(magenta)%ai (%ar)%C(reset)%n%+B'"
 alias gld="git log --topo-order --stat --patch --full-diff \
   --pretty=format:'%C(bold)Commit:%C(reset) %C(yellow)%H%C(auto)%d%n%C(bold)Author:%C(reset) %C(blue)%an <%ae>%n%C(bold)Date:%C(reset)   %C(magenta)%ai (%ar)%C(reset)%n%+B'"
-alias gst="git status"
+alias gp="git push"
+alias gp="git push --force-with-lease"
+alias gr="git rebase"
+alias gra="git rebase --abort"
+alias grc="git rebase --continue"
+alias gri="git rebase --interactive"
+alias gs="git status"
+alias gso="git status -uno"
 alias hc="hub compare"
 alias hs="hub sync"
 alias rgs="rg --no-filename --no-heading --no-line-number"

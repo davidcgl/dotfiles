@@ -11,7 +11,7 @@ zstyle ':prezto:load' pmodule \
   'environment' \
   'editor' \
   'completion' \
-  'git' \
+  'helper' \
   'history' \
   'syntax-highlighting' \
   'prompt'
