@@ -19,10 +19,6 @@ export FZF_CTRL_R_OPTS="--exact"
 BASE16_SHELL=${HOME}/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-# So Ctrl-s doesn't freeze my terminal
-# http://unix.stackexchange.com/questions/72086/ctrl-s-hang-terminal-emulator
-stty -ixon
-
 # Make copy-paste work the same across OSX and Ubuntu.
 if [[ "$OSTYPE" == linux* ]]; then
  if (( $+commands[xclip] )); then
@@ -77,6 +73,7 @@ bindkey \^U backward-kill-line
 alias l="ls -1A"
 alias ll="ls -lh"
 alias la="ls -lhA"
+alias ga="git add"
 alias gb="git branch"
 alias gbd="git branch -d"
 alias gbD="git branch -D"
@@ -84,6 +81,7 @@ alias gco="git checkout"
 alias gc="git commit --verbose"
 alias gca="git commit --verbose --all"
 alias gcam="git commit --verbose --all --message"
+alias gcm="git commit --verbose --message"
 alias gf="git fetch"
 alias gl="git log --topo-order \
   --pretty=format:'%C(bold)Commit:%C(reset) %C(yellow)%H%C(auto)%d%n%C(bold)Author:%C(reset) %C(blue)%an <%ae>%n%C(bold)Date:%C(reset)   %C(magenta)%ai (%ar)%C(reset)%n%+B'"
@@ -100,7 +98,7 @@ alias gls="git log --topo-order --stat \
 alias gld="git log --topo-order --stat --patch --full-diff \
   --pretty=format:'%C(bold)Commit:%C(reset) %C(yellow)%H%C(auto)%d%n%C(bold)Author:%C(reset) %C(blue)%an <%ae>%n%C(bold)Date:%C(reset)   %C(magenta)%ai (%ar)%C(reset)%n%+B'"
 alias gp="git push"
-alias gp="git push --force-with-lease"
+alias gpf="git push --force-with-lease"
 alias gr="git rebase"
 alias gra="git rebase --abort"
 alias grc="git rebase --continue"
@@ -127,3 +125,4 @@ print_colors() {
     printf '\033[1;38;5;%dmcolor %d\n' "$i" "$i"
   done
 }
+
