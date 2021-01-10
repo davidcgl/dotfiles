@@ -186,3 +186,7 @@ au FileType cpp,java,javascript setlocal commentstring=//\ %s
 
 " Column limit is 100 for java files.
 au FileType java setlocal colorcolumn=101
+
+au BufReadPost *.rkt,*.rktl set filetype=scheme
+au FileType scheme setlocal textwidth=102
+au FileType scheme setlocal colorcolumn=103

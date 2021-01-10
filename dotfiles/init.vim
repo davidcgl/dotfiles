@@ -23,4 +23,9 @@ else
   set incsearch           " search as you type
   set showcmd             " show partial command in last line of screen
   set smartcase           " case insensitive when searching all lowercase
+
+  " For Racket
+  au BufReadPost *.rkt,*.rktl set filetype=scheme
+  au FileType scheme setlocal textwidth=102
+  au FileType scheme setlocal colorcolumn=103
 endif
