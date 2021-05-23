@@ -1,7 +1,6 @@
 export PATH=/usr/local/opt/python/libexec/bin:${PATH}
 export PATH=${HOME}/bin/google-cloud-sdk/bin:${PATH}
 export PATH=${HOME}/bin:${PATH}
-export PATH=$(brew --prefix)/smlnj/bin:"$PATH"
 
 export GOPATH=${HOME}/go
 
