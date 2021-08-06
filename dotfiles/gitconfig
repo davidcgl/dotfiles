@@ -71,9 +71,6 @@
   new = green bold
   whitespace = red reverse
 
-[status]
-  showUntrackedFiles = all
-
 [include]
   path = ~/.gitconfig_stripe
 
