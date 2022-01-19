@@ -1,6 +1,9 @@
 set hlsearch            " highlight last searched item
 set ignorecase          " case insensitive search and substitute
 set incsearch           " search as you type
+set noesckeys           " no <Esc> key delay
+set ttimeout            " time out for key codes
+set ttimeoutlen=100     " wait up to 100ms after Esc for special key
 set relativenumber      " relative number to current line
 set showcmd             " show partial command in last line of screen
 set showmatch           " show matching bracket
