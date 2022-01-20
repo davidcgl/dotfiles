@@ -21,7 +21,7 @@ brew "httpie"
 brew "hub"
 brew "jq"
 brew "luajit", args: ["HEAD"]
-brew "neovim", args: ["HEAD"]
+brew "neovim", args: ["HEAD"], link: false
 brew "node-build"
 brew "nodenv"
 brew "openjdk"
