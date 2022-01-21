@@ -5,4 +5,11 @@ cd ~/Dropbox/docs
 echo "========================================================================="
 echo "Syncing files to Google Drive"
 echo "========================================================================="
-rsync -avPhR . ~/Google\ Drive/docs
+rsync -avPhR --delete . ~/GoogleDrive/docs
+
+echo 
+
+echo "========================================================================="
+echo "Syncing files to Sync.com"
+echo "========================================================================="
+rsync -avPhR --delete . ~/Sync/docs
