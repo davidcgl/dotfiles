@@ -184,9 +184,11 @@ au FileType cpp,css,go,html,java,javascript au BufWritePre <buffer> :%s/\s\+$//e
 " Use // as commentstring
 au FileType cpp,java,javascript setlocal commentstring=//\ %s
 
-" Column limit is 100 for java files.
-au FileType java setlocal colorcolumn=101
+" Column limits for Python.
+au FileType python setlocal textwidth=79
+au FileType python setlocal colorcolumn=80
 
-au BufReadPost *.rkt,*.rktl set filetype=scheme
-au FileType scheme setlocal textwidth=102
-au FileType scheme setlocal colorcolumn=103
+" Column limits for Java, Ruby, Rust
+au FileType java,ruby,rust setlocal textwidth=100
+au FileType java,ruby,rust setlocal colorcolumn=101
+

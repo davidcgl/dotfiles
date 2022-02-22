@@ -21,11 +21,15 @@ else
 
   set ignorecase          " case insensitive search and substitute
   set incsearch           " search as you type
+  set colorcolumn=81      " display vertical line margin
   set showcmd             " show partial command in last line of screen
   set smartcase           " case insensitive when searching all lowercase
 
-  " For Racket
-  au BufReadPost *.rkt,*.rktl set filetype=scheme
-  au FileType scheme setlocal textwidth=102
-  au FileType scheme setlocal colorcolumn=103
+  " Column limits for Python.
+  au FileType python setlocal textwidth=79
+  au FileType python setlocal colorcolumn=80
+
+  " Column limits for Java, Ruby, Rust
+  au FileType java,ruby,rust setlocal textwidth=100
+  au FileType java,ruby,rust setlocal colorcolumn=101
 endif
