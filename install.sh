@@ -9,7 +9,7 @@ ROOT_DIR=$(pwd)
 SRC_DIR=dotfiles
 
 # Copy dotfiles to home directory.
-for FILE in gitconfig ignore tmux.conf vimrc zpreztorc zshrc zshrc_common zshrc_home; do
+for FILE in gitconfig gitignore ignore tmux.conf vimrc zpreztorc zshrc zshrc_common zshrc_home; do
   SRC_FILE=${ROOT_DIR}/${SRC_DIR}/${FILE}
   DST_FILE=${HOME}/.${FILE}
   run "rm -f ${DST_FILE}"

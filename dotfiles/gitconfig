@@ -10,6 +10,7 @@
   commitGraph = true
   splitIndex = true
   untrackedCache = true
+  excludesfile = ~/.gitignore
 
 [alias]
   # Show current branch name.
