@@ -8,6 +8,8 @@ set showcmd             " show partial command in last line of screen
 set showmatch           " show matching bracket
 set showmode            " message on the status line to show current mode
 set smartcase           " case insensitive when searching all lowercase
+set softtabstop=2       " setting to equal tabstop to use all spaces only
+set tabstop=2           " use 2 spaces to represent tab
 set wrapscan            " searches wrap around the end of file
 
 set ideajoin
