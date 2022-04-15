@@ -1,6 +1,10 @@
 export PATH=${HOME}/bin/google-cloud-sdk/bin:${PATH}
 export PATH=${HOME}/bin:${PATH}
 
+if which yarn > /dev/null; then
+  export PATH="$(yarn global bin):$PATH"
+fi
+
 export GOPATH=${HOME}/go
 
 if which rbenv > /dev/null; then
