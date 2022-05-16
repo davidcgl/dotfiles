@@ -72,9 +72,6 @@
   new = green bold
   whitespace = red reverse
 
-[include]
-  path = ~/.gitconfig_stripe
-
 [credential]
   helper = osxkeychain
 
