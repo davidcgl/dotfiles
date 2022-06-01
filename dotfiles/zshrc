@@ -6,8 +6,10 @@ if [[ -e ${HOME}/.zshrc_common ]]; then
   source ${HOME}/.zshrc_common
 fi
 
-if [[ -e ${HOME}/.at_work ]]; then
-  source ${HOME}/.zshrc_work
-else
+if [[ -e ${HOME}/.zshrc_home ]]; then
   source ${HOME}/.zshrc_home
+fi
+
+if [[ -e ${HOME}/.zshrc_work ]]; then
+  source ${HOME}/.zshrc_work
 fi

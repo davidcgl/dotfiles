@@ -86,6 +86,8 @@ alias glb="git log --topo-order \
   --format='%C(yellow)%h%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset)'"
 alias glo="git log --topo-order --date=short \
   --format='%C(yellow)%h%C(reset) %C(magenta)%ad%C(reset) %C(blue)%aN%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset)'"
+alias glor="git log --topo-order --date=relative \
+  --format='%C(yellow)%h%C(reset) %C(magenta)%ad%C(reset) %C(blue)%aN%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset)'"
 alias glg="git log --graph --all --date=short \
   --format='%C(yellow)%h%C(reset) %C(magenta)%ad%C(reset) %C(blue)%aN%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset)'"
 alias glgr="git log --graph --all --date=relative \
