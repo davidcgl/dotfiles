@@ -25,11 +25,11 @@
   # Run git diff using diff-so-fancy UI
   df = "!df() { git diff $* | diff-so-fancy | less --tabs=4 -RFX; }; df"
 
-  # Show all files different from master
+  # Show all files different from main
   dff = !git diff --name-only
 
-  # Show all files different from master
-  dfm = !git diff --name-only master...
+  # Show all files different from main
+  dfm = !git diff --name-only main...
 
   # Show the latest log
   last = log -1 HEAD
@@ -79,3 +79,5 @@
   host = git.corp.stripe.com
 [init]
 	defaultBranch = main
+[push]
+	autoSetupRemote = true
