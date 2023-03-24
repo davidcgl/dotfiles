@@ -121,7 +121,7 @@ call plug#end()
 " ==============================================================================
 
 set background=dark
-colorscheme desert
+colorscheme default
 
 set autoindent          " copy indent from current line when starting new line
 set autoread            " reload file if its changed outside of vim
