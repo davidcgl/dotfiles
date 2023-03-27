@@ -3,6 +3,7 @@
 .idea
 .meteor
 .iron
+.next
 
 # Vim swp files
 [._]*.s[a-w][a-z]
