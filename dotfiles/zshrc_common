@@ -84,11 +84,11 @@ alias gl="git log --topo-order \
   --pretty=format:'%C(bold)Commit:%C(reset) %C(yellow)%H%C(auto)%d%n%C(bold)Author:%C(reset) %C(blue)%an <%ae>%n%C(bold)Date:%C(reset)   %C(magenta)%ai (%ar)%C(reset)%n%+B'"
 alias glb="git log --topo-order \
   --format='%C(yellow)%h%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset)'"
-alias glo="git log --topo-order --date=short \
+alias glo="git log --topo-order --date='format-local:%Y-%m-%d %H:%M:%S' \
   --format='%C(yellow)%h%C(reset) %C(magenta)%ad%C(reset) %C(blue)%aN%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset)'"
 alias glor="git log --topo-order --date=relative \
   --format='%C(yellow)%h%C(reset) %C(magenta)%ad%C(reset) %C(blue)%aN%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset)'"
-alias glg="git log --graph --all --date=short \
+alias glg="git log --graph --all --date='format-local:%Y-%m-%d %H:%M:%S' \
   --format='%C(yellow)%h%C(reset) %C(magenta)%ad%C(reset) %C(blue)%aN%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset)'"
 alias glgr="git log --graph --all --date=relative \
   --format='%C(yellow)%h%C(reset) %C(magenta)%ad%C(reset) %C(blue)%aN%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset)'"
@@ -131,4 +131,3 @@ print_colors() {
 gcf() {
  git checkout "$(git branch | fzf | tr -d '[:space:]')"
 }
-
