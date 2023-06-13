@@ -1,0 +1,73 @@
+#!/bin/zsh
+
+# Modified from https://janosh.dev/posts/conda-auto-env
+#
+# Automatically activates conda environments when entering directories
+# containing a conda environment file. The file must be named one of
+#   - env(ironment).y(a)ml
+#   - requirements.y(a)ml
+#
+# Deactivates env when exiting the directory. If the env doesn't exist yet,
+# offer to create it from file.
+#
+# Installation: Copy chpwd() to .zshrc or save the whole script as a file and
+# source it in .zshrc, e.g. by placing it in /usr/local/bin or by symlinking
+# conda-auto-env there and then adding `source conda-auto-env`.
+#
+# chpwd is a zsh hook called whenever the working directory changes.
+# (http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions). When
+# using bash, use the environment variable `PROMPT_COMMAND` instead. This might
+# have performance implications since it runs on every prompt (even empty ones),
+# not just directory changes. Plus PROMPT_COMMAND makes it impossible to change
+# to a different conda env while you're in a directory with an env file since
+# bash will always auto-change back to that file's env.
+chpwd() {
+  # Check if there's an env file in the current directory.
+  local file="$(find -E . -maxdepth 1 -regex '.*(env(ironment)?|requirements).ya?ml' -print -quit)"
+
+  if [[ -e $file ]]; then
+    # Get env name from file.
+    local target_env=$(sed -n 's/name: //p' $file)
+
+    # Check if there's an active conda env.
+    local active_env=""
+
+    # $CONDA_PREFIX is non-empty when there's an active conda env.
+    if [[ $CONDA_PREFIX != "" ]]; then
+      active_env="${CONDA_PREFIX##*/}"
+    fi
+
+    # echo "Active env: $active_env"
+    # echo "Target env: $target_env"
+
+    # Activate target env if it's not already active.
+    if [[ $active_env != $target_env ]]; then
+      # echo "Activating env '$target_env'"
+      conda activate $target_env
+
+      # If env activation is unsuccessful, prompt user whether to create conda env from file.
+      if [[ $? -ne 0 ]]; then
+        read "ans?[conda-auto-env] Environment '$target_env' doesn't exist. Would you like to create it now? (y/n)"$'\n'
+
+        # Interpret enter as yes.
+        if [[ $ans = "" || $ans = "y" || $ans = "Y" ]]; then
+          echo "Proceeding..."
+          conda env create -f $file
+          conda activate $target_env
+        else
+          echo "Exiting..."
+          return 0
+        fi
+      fi
+
+      CONDA_ENV_ROOT1="$(pwd)"
+    fi
+  # Deactivate env when exiting the env file's directory.
+  elif [[ $PATH = */envs/* ]] && [[ $(pwd) != $CONDA_ENV_ROOT1 ]] && [[ $(pwd) != $CONDA_ENV_ROOT1/* ]]; then
+    CONDA_ENV_ROOT1=""
+    conda deactivate
+  fi
+}
+
+# Execute chpwd on shell init in case the shell launches in a conda env directory.
+chpwd
