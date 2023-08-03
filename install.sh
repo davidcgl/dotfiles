@@ -28,5 +28,5 @@ done
 # Copy init.nvim
 run "mkdir -p ${HOME}/.config/nvim"
 run "rm -f ${HOME}/.config/nvim/init.vim"
-run "ln -s ${ROOT_DIR}/${SRC_DIR}/init.vim ${HOME}/.config/nvim/init.vim"
+run "ln -s ${ROOT_DIR}/dotfiles/init.vim ${HOME}/.config/nvim/init.vim"
 
