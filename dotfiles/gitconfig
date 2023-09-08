@@ -1,7 +1,3 @@
-# Please indent options with one tab when editing defaults in
-# https://github.com/stripe-internal/marionette-puppet-config/blob/master/modules/git/templates/gitconfig.erb
-# That matches how "git config --global" edits the file.
-
 [user]
   name = David Chen
   useConfigOnly = true
@@ -11,6 +7,37 @@
   splitIndex = true
   untrackedCache = true
   excludesfile = ~/.gitignore
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  # Use n and N to move between diff sections.
+  navigate = true
+
+  # Set to `true` to use light themes
+  light = false
+
+  # Show line numbers
+  line-numbers = true
+
+  # Enables side-by-side view
+  side-by-side = true
+
+  # Color overrides
+  plus-style = syntax "#006000"
+  plus-non-emph-style = syntax "#006000"
+  plus-emph-style = bold syntax 52
+  plus-empty-line-marker-style = normal "#006000"
+  minus-emph-style = bold syntax 22
+
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default
 
 [alias]
   # Show current branch name.
@@ -22,8 +49,12 @@
   # Remove local branches that don't have a remote branch
   cleanup = !git branch -vv | grep 'origin.*gone]' | awk '{print $1}' | xargs git branch -D
 
+  # TODO: Remove this once we're set on using `delta`
   # Run git diff using diff-so-fancy UI
-  df = "!df() { git diff $* | diff-so-fancy | less --tabs=4 -RFX; }; df"
+  # df = "!df() { git diff $* | diff-so-fancy | less --tabs=4 -RFX; }; df"
+
+  df = !git diff
+  dfc = !git diff --cached
 
   # Show all files different from main
   dff = !git diff --name-only
