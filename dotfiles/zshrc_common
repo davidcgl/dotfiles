@@ -2,6 +2,18 @@
 # General
 # ------------------------------------------------------------------------------
 
+# History
+HISTSIZE=1000000
+SAVEHIST=1000000
+
+# Use Emacs key bindings.
+bindkey -e
+
+# In Bash, Ctrl-u clears the text from cursor to the beginning of the line.
+# In Zsh, Ctrl-u is bound to `kill-whole-line`. I almost never need to kill the
+# whole line, so remapping this to match Bash's behavior.
+bindkey \^U backward-kill-line
+
 export EDITOR=nvim
 export VISUAL=nvim
 export TMUX_TMPDIR=/tmp
@@ -12,12 +24,15 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
 export FZF_ALT_C_COMMAND="fd --type d --hidden --exclude .git"
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 export FZF_CTRL_R_OPTS="--exact"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [[ -e ${HOME}/.fzf.zsh ]]; then
+  source ${HOME}/.fzf.zsh
+fi
 
 # Base16-shell
 # https://github.com/chriskempson/base16-shell
 BASE16_SHELL=${HOME}/.config/base16-shell/
-[ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && source "$BASE16_SHELL/profile_helper.sh"
+[[ -n "$PS1" ]] && [[ -s "$BASE16_SHELL/profile_helper.sh" ]] && source "$BASE16_SHELL/profile_helper.sh"
 
 # Make copy-paste work the same across OSX and Ubuntu.
 if [[ "$OSTYPE" == linux* ]]; then
@@ -33,34 +48,23 @@ fi
 alias pbc='pbcopy'
 alias pbp='pbpaste'
 
-if is-callable 'dircolors'; then
-  # GNU Core Utilities
-  if [[ -s "${HOME}/.dir_colors" ]]; then
-    eval "$(dircolors --sh "${HOME}/.dir_colors")"
-  else
-    eval "$(dircolors --sh)"
-  fi
-  alias ls="ls --group-directories-first --color=auto"
-else
-  # BSD Core Utilities
-  # Define colors for BSD ls.
-  export LSCOLORS='exfxcxdxbxGxDxabagacad'
-  # Define colors for the completion system.
-  export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
-  alias ls="ls -G"
-fi
-
-# History
-HISTSIZE=1000000
-SAVEHIST=1000000
-
-# Use Emacs key bindings.
-bindkey -e
-
-# In Bash, Ctrl-u clears the text from cursor to the beginning of the line.
-# In Zsh, Ctrl-u is bound to `kill-whole-line`. I almost never need to kill the
-# whole line, so remapping this to match Bash's behavior.
-bindkey \^U backward-kill-line
+# TODO(2024-01-16): Not sure if this is obsolete, delete if not needed
+# if is-callable 'dircolors'; then
+#   # GNU Core Utilities
+#   if [[ -s "${HOME}/.dir_colors" ]]; then
+#     eval "$(dircolors --sh "${HOME}/.dir_colors")"
+#   else
+#     eval "$(dircolors --sh)"
+#   fi
+#   alias ls="ls --group-directories-first --color=auto"
+# else
+#   # BSD Core Utilities
+#   # Define colors for BSD ls.
+#   export LSCOLORS='exfxcxdxbxGxDxabagacad'
+#   # Define colors for the completion system.
+#   export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
+#   alias ls="ls -G"
+# fi
 
 
 # ==============================================================================

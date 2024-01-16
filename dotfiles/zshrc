@@ -1,5 +1,5 @@
-if [[ -s "${HOME}/.zprezto/init.zsh" ]]; then
-  source "${HOME}/.zprezto/init.zsh"
+if [[ -e ${HOME}/.zprezto/init.zsh ]]; then
+  source ${HOME}/.zprezto/init.zsh
 fi
 
 if [[ -e ${HOME}/.zshrc_common ]]; then

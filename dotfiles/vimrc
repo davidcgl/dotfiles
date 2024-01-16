@@ -191,4 +191,3 @@ au FileType python setlocal colorcolumn=80
 " Column limits for Java, Ruby, Rust
 au FileType java,ruby,rust setlocal textwidth=100
 au FileType java,ruby,rust setlocal colorcolumn=101
-
