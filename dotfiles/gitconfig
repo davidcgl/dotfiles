@@ -34,17 +34,20 @@
   add-generated = !git ls-generated | xargs git add
 
 [core]
-  commitGraph = true
   excludesfile = ~/.gitignore
+  fsmonitor = true
   pager = diff-so-fancy | less --tabs=4 -RF
   splitIndex = true
   untrackedCache = true
 
+[commit]
+  verbose = true
+
 [credential]
   helper = osxkeychain
 
-[gc]
-  writeCommitGraph = true
+[diff]
+  algorithm = histogram
 
 [help]
   autoCorrect = 1
@@ -53,7 +56,10 @@
   defaultBranch = main
 
 [merge]
-  conflictstyle = diff3
+  conflictstyle = zdiff3
+
+[push]
+  default = current
 
 [user]
   name = David Chen
