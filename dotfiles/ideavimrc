@@ -17,9 +17,9 @@ set visualbell
 set noerrorbells
 set clipboard+=unnamed  " yank to system clipboard
 
-" Idea emulated plugins 
-set commentary    " vim-commentary 
-set surround      " vim-surround
+" Idea emulated plugins
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 
 " Search selected text
 vnoremap <leader>s yq/p<CR>
@@ -34,4 +34,3 @@ nnoremap g# g#zz
 
 " Clear highlighting
 nnoremap <C-l> :noh<CR>
-
