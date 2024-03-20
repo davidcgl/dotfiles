@@ -5,7 +5,7 @@
   # Overwrite the last commit, don't ask.
   cane = commit --amend --no-edit
 
-  # Remove local branches that don't have a remote branch
+  # Remove local branches that don't have a remote branch.
   cleanup = !git branch -vv | grep 'origin.*gone]' | awk '{print $1}' | xargs git branch -D
 
   # Shortcuts for git diff
@@ -13,19 +13,22 @@
   dfc = !git diff --cached
   dff = !git diff --name-only
 
-  # Show all files different from main
-  dfm = !git diff --name-only main...
+  # Assumes that default branch is either master or main.
+  get-default-branch = "!git branch -r | grep -q 'origin/master' && echo master || echo main"
 
-  # Show the latest log
+  # Show all files different from main.
+  dfm = !git diff --name-only $(git get-default-branch)...
+
+  # Show the latest log.
   last = log -1 HEAD
 
-  # Show all modified and untracked files
+  # Show all modified and untracked files.
   opened = !git ls-files --modified --others --exclude-standard
 
-  # Publish branch upstream
+  # Publish branch upstream.
   publish = !git push -u origin $(git branch-name)
 
-  # Checkout a remote branch that isn't normally tracked, usually for review
+  # Checkout a remote branch that isn't normally tracked, usually for review.
   remote-fetch = "!rf() { git config --add remote.origin.fetch +refs/heads/$1:refs/remotes/origin/$1; git fetch origin +$1:refs/remotes/origin/$1; }; rf"
   remote-purge = "!rp() { git config --unset remote.origin.fetch \".*$1.*\"; git update-ref -d refs/remotes/origin/$1; }; rp"
 
