@@ -62,7 +62,15 @@
   conflictstyle = zdiff3
 
 [push]
+  # Push the current branch to update a branch with the same name on remote.
   default = current
+
+  # If set to "true" assume --set-upstream on default push when no upstream
+  # tracking exists for the current branch; this option takes effect with
+  # push.default options simple, upstream, and current. It is useful if by
+  # default you want new branches to be pushed to the default remote and you
+  # also want the upstream tracking to be set.
+  autoSetupRemote = true
 
 [user]
   name = David Chen
