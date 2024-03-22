@@ -43,6 +43,9 @@
   splitIndex = true
   untrackedCache = true
 
+[fetch]
+  writeCommitGraph = true
+
 [commit]
   verbose = true
 
