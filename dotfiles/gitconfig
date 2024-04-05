@@ -5,6 +5,9 @@
   # Overwrite the last commit, don't ask.
   cane = commit --amend --no-edit
 
+  # Commit with a message like "WIP 2024-04-04T12:34:56Z"
+  commit-wip = !git commit --message \"WIP $(date +%Y-%m-%dT%H:%M:%SZ)\"
+
   # Remove local branches that don't have a remote branch.
   cleanup = !git branch -vv | grep 'origin.*gone]' | awk '{print $1}' | xargs git branch -D
 
