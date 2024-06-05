@@ -34,6 +34,9 @@ fi
 BASE16_SHELL=${HOME}/.config/base16-shell/
 [[ -n "$PS1" ]] && [[ -s "$BASE16_SHELL/profile_helper.sh" ]] && source "$BASE16_SHELL/profile_helper.sh"
 
+# Zoxide
+eval "$(zoxide init zsh)"
+
 # Make copy-paste work the same across OSX and Ubuntu.
 if [[ "$OSTYPE" == linux* ]]; then
  if (( $+commands[xclip] )); then
@@ -72,9 +75,9 @@ alias gca="git commit --verbose --all"
 alias gcam="git commit --verbose --all --message"
 alias gcm="git commit --verbose --message"
 alias gf="git fetch"
-alias gl="git log --topo-order \
-  --pretty=format:'%C(bold)Commit:%C(reset) %C(yellow)%H%C(auto)%d%n%C(bold)Author:%C(reset) %C(blue)%an <%ae>%n%C(bold)Date:%C(reset)   %C(magenta)%ai (%ar)%C(reset)%n%+B'"
-alias glb="git log --topo-order \
+alias gl="git log --topo-order --date='format-local:%Y-%m-%d %H:%M:%S' \
+  --pretty=format:'%C(bold)Commit:%C(reset) %C(yellow)%H%C(auto)%d%n%C(bold)Author:%C(reset) %C(blue)%an <%ae>%n%C(bold)Date:%C(reset)   %C(magenta)%ad (%ar)%C(reset)%n%n%w(0,4,4)%B%n'"
+alias glb="git log --topo-order --date='format-local:%Y-%m-%d %H:%M:%S' \
   --format='%C(yellow)%h%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset)'"
 alias glo="git log --topo-order --date='format-local:%Y-%m-%d %H:%M:%S' \
   --format='%C(yellow)%h%C(reset) %C(magenta)%ad%C(reset) %C(blue)%aN%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset)'"
@@ -84,10 +87,10 @@ alias glg="git log --graph --all --date='format-local:%Y-%m-%d %H:%M:%S' \
   --format='%C(yellow)%h%C(reset) %C(magenta)%ad%C(reset) %C(blue)%aN%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset)'"
 alias glgr="git log --graph --all --date=relative \
   --format='%C(yellow)%h%C(reset) %C(magenta)%ad%C(reset) %C(blue)%aN%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset)'"
-alias gls="git log --topo-order --stat \
-  --pretty=format:'%C(bold)Commit:%C(reset) %C(yellow)%H%C(auto)%d%n%C(bold)Author:%C(reset) %C(blue)%an <%ae>%n%C(bold)Date:%C(reset)   %C(magenta)%ai (%ar)%C(reset)%n%+B'"
-alias gld="git log --topo-order --stat --patch --full-diff \
-  --pretty=format:'%C(bold)Commit:%C(reset) %C(yellow)%H%C(auto)%d%n%C(bold)Author:%C(reset) %C(blue)%an <%ae>%n%C(bold)Date:%C(reset)   %C(magenta)%ai (%ar)%C(reset)%n%+B'"
+alias gls="git log --topo-order --date='format-local:%Y-%m-%d %H:%M:%S' --stat \
+  --pretty=format:'%C(bold)Commit:%C(reset) %C(yellow)%H%C(auto)%d%n%C(bold)Author:%C(reset) %C(blue)%an <%ae>%n%C(bold)Date:%C(reset)   %C(magenta)%ad (%ar)%C(reset)%n%n%w(0,4,4)%B%n'"
+alias gld="git log --topo-order --date='format-local:%Y-%m-%d %H:%M:%S' --stat --patch --full-diff \
+  --pretty=format:'%C(bold)Commit:%C(reset) %C(yellow)%H%C(auto)%d%n%C(bold)Author:%C(reset) %C(blue)%an <%ae>%n%C(bold)Date:%C(reset)   %C(magenta)%ad (%ar)%C(reset)%n%n%w(0,4,4)%B%n'"
 alias gp="git push"
 alias gpf="git push --force-with-lease"
 alias gr="git rebase"
@@ -96,7 +99,7 @@ alias grc="git rebase --continue"
 alias gri="git rebase --interactive"
 alias gs="git status"
 alias gso="git status -uno"
-alias gsw="git switch"
+alias gsi="git switch"
 alias gsp="git stash push"
 alias gspp="git stash pop"
 alias hb="hub browse"
