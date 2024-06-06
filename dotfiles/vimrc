@@ -114,6 +114,11 @@ Plug 'vim-scripts/matchit.zip'
 " hi StatusLine   ctermfg=7   ctermbg=18
 " hi Todo                     ctermbg=0   cterm=bold
 
+" ---------------------------------
+" tokyo night theme
+" ---------------------------------
+Plug 'folke/tokyonight.nvim'
+
 call plug#end()
 
 " ==============================================================================
@@ -121,7 +126,7 @@ call plug#end()
 " ==============================================================================
 
 set background=dark
-colorscheme default
+colorscheme tokyonight-storm
 
 set autoindent          " copy indent from current line when starting new line
 set autoread            " reload file if its changed outside of vim
