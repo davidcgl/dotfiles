@@ -31,6 +31,10 @@
   # Publish branch upstream.
   publish = !git push -u origin $(git branch-name)
 
+  # Shortcut for stash push, sync, and stash pop. Also rebase if not on default branch.
+  # sync = !git stash && hub sync && git stash pop
+  sync = "!f() { current=$(git branch-name); default=$(git get-default-branch); git stash; hub sync; [ \"$current\" != \"$default\" ] && git rebase \"$default\"; git stash pop; }; f"
+
   # Checkout a remote branch that isn't normally tracked, usually for review.
   remote-fetch = "!rf() { git config --add remote.origin.fetch +refs/heads/$1:refs/remotes/origin/$1; git fetch origin +$1:refs/remotes/origin/$1; }; rf"
   remote-purge = "!rp() { git config --unset remote.origin.fetch \".*$1.*\"; git update-ref -d refs/remotes/origin/$1; }; rp"
