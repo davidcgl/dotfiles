@@ -1,3 +1,6 @@
+# Uncomment to enable profiling
+# zmodload zsh/zprof
+
 if [[ -e ${HOME}/.zprezto/init.zsh ]]; then
   source ${HOME}/.zprezto/init.zsh
 fi
@@ -13,3 +16,17 @@ fi
 if [[ -e ${HOME}/.zshrc_work ]]; then
   source ${HOME}/.zshrc_work
 fi
+
+# Keep this commented so that `wcli setup` doesn't add it back
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Replace nvm with fnm because nvm is really slow
+# https://github.com/Schniz/fnm
+if command -v fnm &> /dev/null; then
+  eval "$(fnm env --use-on-cd --shell zsh)"
+fi
+
+# Uncomment to enable profiling
+# zprof

@@ -1,4 +1,5 @@
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
+set runtimepath^=~/.vim
+set runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 
 if !exists('g:vscode')
@@ -24,12 +25,4 @@ else
   set colorcolumn=81      " display vertical line margin
   set showcmd             " show partial command in last line of screen
   set smartcase           " case insensitive when searching all lowercase
-
-  " Column limits for Python.
-  au FileType python setlocal textwidth=79
-  au FileType python setlocal colorcolumn=80
-
-  " Column limits for Java, Ruby, Rust
-  au FileType java,ruby,rust setlocal textwidth=100
-  au FileType java,ruby,rust setlocal colorcolumn=101
 endif
