@@ -117,7 +117,12 @@ Plug 'vim-scripts/matchit.zip'
 " ---------------------------------
 " tokyo night theme
 " ---------------------------------
-Plug 'folke/tokyonight.nvim'
+"Plug 'folke/tokyonight.nvim'
+
+" ---------------------------------
+" Monokai Pro theme
+" ---------------------------------
+Plug 'phanviet/vim-monokai-pro'
 
 call plug#end()
 
@@ -126,7 +131,8 @@ call plug#end()
 " ==============================================================================
 
 set background=dark
-colorscheme tokyonight-storm
+set termguicolors
+colorscheme monokai_pro
 
 set autoindent          " copy indent from current line when starting new line
 set autoread            " reload file if its changed outside of vim
