@@ -29,3 +29,8 @@ done
 run "mkdir -p ${HOME}/.config/nvim"
 run "rm -f ${HOME}/.config/nvim/init.vim"
 run "ln -s ${ROOT_DIR}/dotfiles/init.vim ${HOME}/.config/nvim/init.vim"
+
+# Copy ghostty config
+# run "mkdir -p ${HOME}/.config/ghostty"
+run "rm -f ${HOME}/.config/ghostty"
+run "ln -s ${ROOT_DIR}/ghostty ${HOME}/.config/ghostty"
