@@ -30,7 +30,7 @@ map g/ <Plug>(incsearch-stay)
 " ------------------------------------
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-let g:airline_theme = 'badwolf'
+let g:airline_theme = 'ayu_mirage'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
