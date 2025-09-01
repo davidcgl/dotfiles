@@ -20,7 +20,7 @@ done
 run "mkdir -p ${HOME}/bin/"
 for FILE in sync-docs conda-auto-env; do
   SRC_FILE=${ROOT_DIR}/scripts/${FILE}
-  DST_FILE=${HOME}/bin/.${FILE}
+  DST_FILE=${HOME}/bin/${FILE}
   run "rm -f ${DST_FILE}"
   run "ln -s ${SRC_FILE} ${DST_FILE}"
 done
