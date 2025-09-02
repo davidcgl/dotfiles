@@ -18,7 +18,7 @@ done
 
 # Copy scripts to ~/bin.
 run "mkdir -p ${HOME}/bin/"
-for FILE in sync-docs conda-auto-env; do
+for FILE in sync-archive.py; do
   SRC_FILE=${ROOT_DIR}/scripts/${FILE}
   DST_FILE=${HOME}/bin/${FILE}
   run "rm -f ${DST_FILE}"

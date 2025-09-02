@@ -7,7 +7,7 @@ echo "Syncing files to Google Drive"
 echo "========================================================================="
 rsync -avPhR --delete . ~/GoogleDrive/docs
 
-echo 
+echo
 
 echo "========================================================================="
 echo "Syncing files to Sync.com"
